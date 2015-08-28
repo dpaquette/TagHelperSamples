@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Progress bar Tag Helper</p>
+
+<div bs-progress-value="@Model.CurrentProgress" class="masthead"
+     bs-progress-max="100"
+     bs-progress-min="0">
+</div>
+
+
+<p> Error display TH </p>
+
+
+<error-display message="@Model.Message" icon="warning"
+               header="Error!">
+</error-display>
