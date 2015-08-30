@@ -19,12 +19,12 @@ namespace TagHelperSamples.Controllers
 
         public IActionResult AlertTagHelper()
         {
-            var model = new TestModel
-            {
-                Header = "Unable to save form",
-                Message = "Please fix the highlighted errors on the form below."
-            };
-
+                var model = new TestModel
+                {
+                    Header = "Unable to save form",
+                    Message = "Please fix the highlighted errors on the form below."
+                };
+        
             return View(model);
         }
 
@@ -38,5 +38,21 @@ namespace TagHelperSamples.Controllers
             };
             return View(model);
         }
+
+
+        public IActionResult TextEntryTagHelper(TestModel model = null)
+        {
+            if (model == null || model.Header == null && model.Message == null)
+            {
+
+                model = new TestModel
+                {
+                    Header = "Unable to save form",
+                    Message = "Please fix the highlighted errors on the form below."
+                };
+            }
+            return View(model);
+        }
+
     }
 }
