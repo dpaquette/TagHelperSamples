@@ -88,7 +88,12 @@ namespace TagHelperSamples.TagHelpers
             ctl.Attributes.Add("value", value);
             if (!string.IsNullOrEmpty(placeholder))
                 ctl.Attributes.Add("placeholder", placeholder);
-            sb.AppendLine(ctl.ToString());
+
+            sb.AppendLine( ctl.ToString() );
+
+            // TODO: Add ValidationMessage           
+            //ctl = new TagBuilder("span");
+            
 
             
             output.Content.SetContent(sb.ToString());
