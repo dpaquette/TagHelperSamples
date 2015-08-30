@@ -9,8 +9,9 @@
 </p>
 
 <p>
-    This tag helper makes it easy to display alert messages in your markup with
-    plain text or text retrieved from your model. If the <code>message</code> and <code>header</code>
+    This tag helper combines the <b>Bootstrap alert box</b> with <b>font-awesome</b> icons to provide
+    a less verbose alert/error display. Use plain text or text retrieved from your model to display
+    content. If the <code>message</code> and <code>header</code>
     attributes are empty nothing is displayed, otherwise the alert box shows. Messages are displayed in the
     bootstrap alert themes and display with an appropriate icon that you can optionally override.
 </p>
@@ -95,3 +96,12 @@
     </p>
 </div>
 
+<div class="sample">
+    <h3>No Icon</h3>
+    <alert message="Updated completed. Ready for the next step? Click the button below."
+            icon="none" alert-class="info">
+    </alert>
+
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;alert message=&quot;@@Model.Message&quot;&gt;&lt;/alert&gt;</code></pre>
+</div>
