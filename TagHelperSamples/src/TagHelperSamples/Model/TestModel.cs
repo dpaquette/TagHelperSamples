@@ -9,5 +9,6 @@ namespace TagHelperSamples.Model
     {
       public int CurrentProgress { get; set; }
       public string Message { get; set; }
+      public string Header { get; set; }
    }
 }

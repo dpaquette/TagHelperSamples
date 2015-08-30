@@ -19,7 +19,13 @@ namespace TagHelperSamples.Controllers
 
         public IActionResult AlertTagHelper()
         {
-            return View();
+            var model = new TestModel
+            {
+                Header = "Unable to save form",
+                Message = "Please fix the highlighted errors on the form below."
+            };
+
+            return View(model);
         }
 
         public IActionResult ProgressBarTagHelper()

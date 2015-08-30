@@ -3,24 +3,34 @@
 }
 <h2>Alert Tag Helper</h2>
 <hr />
-<i class="small">contributed by <a href="http://weblog.west-wind.com">Rick Strahl</a></i>
+
+<p>
+    <i class="small">contributed by <a href="http://weblog.west-wind.com">Rick Strahl</a></i>
+</p>
+
+<p>
+    This tag helper makes it easy to display alert messages in your markup with
+    plain text or text retrieved from your model. If the <code>message</code> and <code>header</code>
+    attributes are empty nothing is displayed, otherwise the alert box shows. Messages are displayed in the
+    bootstrap alert themes and display with an appropriate icon that you can optionally override.
+</p>
 
 <div class="sample">
     <h3>Default Error</h3>
-    <alert message="Something went very wrong">
+    <alert message="@Model.Message">
     </alert>
 
     <h4>Code:</h4>
-    <pre><code class="html">&lt;alert message=&quot;Something went very wrong&quot;&gt;&lt;/alert&gt;</code></pre>
+    <pre><code class="html">&lt;alert message=&quot;@@Model.Message&quot;&gt;&lt;/alert&gt;</code></pre>
 </div>
 
 <div class="sample">
     <h3>With Header</h3>
-    <alert header="Error" message="More detailed error text here.">
+    <alert header="@Model.Header" message="@Model.Message">
     </alert>
 
     <h4>Code:</h4>
-    <pre><code class="html">&lt;alert header=&quot;Error&quot; message=&quot;More detailed error text here.&quot; dismissable=&quot;true&quot;&gt;
+    <pre><code class="html">&lt;alert header=&quot;@@Model.Header&quot; message=&quot;@@Model.Message&quot;&gt;
 &lt;/alert&gt;</code></pre>
 </div>
 
