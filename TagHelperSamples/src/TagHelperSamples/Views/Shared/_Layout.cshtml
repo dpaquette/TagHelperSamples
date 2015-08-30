@@ -35,9 +35,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a asp-controller="Home" asp-action="About"><i class="fa fa-list-ul"></i> Summary</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact"><i class="fa fa-github"></i> GitHub</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,6 +76,12 @@
             <script src="~/js/site.js" asp-file-version="true"></script>
         </environment>
 
+        
         @RenderSection("scripts", required: false)
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/zenburn.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
     </body>
 </html>

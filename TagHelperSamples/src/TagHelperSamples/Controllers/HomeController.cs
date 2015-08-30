@@ -15,11 +15,12 @@ namespace TagHelperSamples.Controllers
       }
 
       public IActionResult About()
-      {
-         ViewData["Message"] = "Your application description page.";
+      {      
          Random random = new Random();
          int randomNumber = random.Next(0, 100);
-         return View(new TestModel { CurrentProgress = randomNumber, Message = "Test" });
+
+         return View(new TestModel { CurrentProgress = randomNumber,
+                          Message = "An error occurred while trying to save customer information." });
       }
 
       public IActionResult Contact()

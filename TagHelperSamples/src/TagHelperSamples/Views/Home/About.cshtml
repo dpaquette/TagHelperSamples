@@ -1,20 +1,31 @@
-﻿@{
+﻿@using System.Threading.Tasks
+@using TagHelperSamples.Model
+@model TagHelperSamples.Model.TestModel
+@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
+<h2>Tag Helper Samples</h2>
+<hr />
 
-<p>Progress bar Tag Helper</p>
+<div class="sample">
+    <h3>Progress bar Tag Helper</h3>
 
-<div bs-progress-value="@Model.CurrentProgress" class="masthead"
-     bs-progress-max="100"
-     bs-progress-min="0">
+    <div bs-progress-value="@Model.CurrentProgress" class="masthead"
+         bs-progress-max="100"
+         bs-progress-min="0">
+    </div>
 </div>
 
+<div class="sample">
+    <h3>Alert TagHelper</h3>
+    <alert message="Thank you for completing our survey." icon="success"></alert>
 
-<p> Error display TH </p>
+    <alert message="@Model.Message" icon="warning"           
+           dismissible="true">
+    </alert>
 
-
-<error-display message="@Model.Message" icon="warning"
-               header="Error!">
-</error-display>
+    <alert message="@Model.Message" icon="danger"
+           header="Error!"
+           dismissible="true">
+    </alert>
+</div>

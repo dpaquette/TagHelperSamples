@@ -1,0 +1,23 @@
+﻿@using TagHelperSamples.Model
+@model TagHelperSamples.Model.TestModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Progressbar TagHelper";
+}
+
+<h2>ProgressBar TagHelper</h2>
+<hr />
+<i class="small">contributed by <a href="https://twitter.com/Dave_Paquette">David Paquette</a></i>
+
+<div class="sample">
+    <h3>Simple Progress Display:</h3>
+        <div bs-progress-value="@Model.CurrentProgress">
+        </div>
+
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;div bs-progress-value=&quot;20&quot;&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
