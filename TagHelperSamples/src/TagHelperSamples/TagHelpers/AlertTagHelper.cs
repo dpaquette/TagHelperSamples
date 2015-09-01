@@ -136,7 +136,8 @@ namespace TagHelperSamples.TagHelpers
                 alertClass += " alert-dismissible";
 
             string messageText = !messageAsHtml ? System.Net.WebUtility.HtmlEncode(message) : message;
-
+            string headerText = !headerAsHtml ? System.Net.WebUtility.HtmlEncode(header) : header;
+         
             output.TagName = "div";
 
             // fix up CSS class            
