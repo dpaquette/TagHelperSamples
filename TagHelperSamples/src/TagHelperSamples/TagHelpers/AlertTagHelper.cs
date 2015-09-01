@@ -161,7 +161,7 @@ namespace TagHelperSamples.TagHelpers
             else
             {
                 sb.Append(
-                    $"<h3><i class='fa fa-{icon}'></i> {header}</h3>\r\n" +
+                    $"<h3><i class='fa fa-{icon}'></i> {headerText}</h3>\r\n" +
                     "<hr/>\r\n" +
                     $"{messageText}\r\n");                
             }
