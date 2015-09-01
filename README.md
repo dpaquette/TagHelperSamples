@@ -1,6 +1,7 @@
 # Tag-helper-samples
-Sample tag helpers that do useful work.
+[TagHelper Samples](http://taghelpersamples.azurewebsites.net/)  running on Azure.
+Sample tag helpers that do useful work. 
 
-To use the [Bootstrap](http://getbootstrap.com/) ErrorDisplayTagHelper  (authored by [Rick Strahl](https://twitter.com/RickStrahl))  add [Font Awesome](https://fortawesome.github.io/Font-Awesome/). The sample project adds FA to the *Views\Shared\_Layout.cshtml* file.
+To use the [Bootstrap](http://getbootstrap.com/) AlertTagHelper  (authored by [Rick Strahl](https://twitter.com/RickStrahl))  add [Font Awesome](https://fortawesome.github.io/Font-Awesome/). The sample project adds FA to the *Views\Shared\_Layout.cshtml* file.
 
-Navigate to About to test ErrorDisplayTagHelper and ProgressBarTagHelper samples.
+Click the *Summary* menu item to see the tag helpers in action. From the home link, select a tag helper to see a code snipet and the resulting UI.
