@@ -9,15 +9,34 @@
 
 <h2>ProgressBar TagHelper</h2>
 <hr />
-<i class="small">contributed by <a href="https://twitter.com/Dave_Paquette">David Paquette</a></i>
+<p><i class="small">contributed by <a href="https://twitter.com/Dave_Paquette">David Paquette</a></i></p>
+<p>This tag helper provides a less verbose syntax for showing a <b>Bootstrap Progress Bar </b>. The progress value can be retrieved from your model or set directly in Razor. Optional attributes can be used to set the min and max values of the progress, which can be useful when displaying user progress through a series of steps.</p>
 
 <div class="sample">
-    <h3>Simple Progress Display:</h3>
-        <div bs-progress-value="@Model.CurrentProgress">
+    <h3>Simple Progress:</h3>
+        <div bs-progress-value="66">
         </div>
+
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;div bs-progress-value=&quot;66&quot;&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="sample">
+    <h3>Simple Progress From Model:</h3>
+    <div bs-progress-value="@Model.CurrentProgress">
+    </div>
 
     <h4>Code:</h4>
     <pre><code class="html">&lt;div bs-progress-value=&quot;@@Model.CurrentProgress&quot;&gt;
 &lt;/div&gt;</code></pre>
 </div>
 
+<div class="sample">
+    <h3>Simple Progress within Range:</h3>
+    <div bs-progress-value="2" bs-progress-min="0" bs-progress-max="5">
+    </div>
+
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;div bs-progress-value=&quot;2&quot; bs-progress-min=&quot;0&quot; bs-progress-max=&quot;5&quot;&gt;
+&lt;/div&gt;</code></pre>
+</div>
