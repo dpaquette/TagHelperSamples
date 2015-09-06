@@ -26,7 +26,7 @@ namespace TagHelperSamples.TagHelpers
       {
          if (ProgressMin >= ProgressMax)
          {
-            throw new ArgumentException(string.Format("{0} must be less than {1}", ProgressMinAttributeName, ProgressMaxAttributeName));
+            throw new ArgumentException($"{ProgressMinAttributeName} must be less than {ProgressMaxAttributeName}");
          }
 
          if (ProgressValue > ProgressMax || ProgressValue < ProgressMin)
@@ -37,11 +37,10 @@ namespace TagHelperSamples.TagHelpers
 
          var progressPercentage = Math.Round(((decimal)(ProgressValue - ProgressMin) / (decimal)progressTotal) * 100, 4);
 
-         string progressBarContent =
-             string.Format(
- @"<div class='progress-bar' role='progressbar' aria-valuenow='{0}' aria-valuemin='{1}' aria-valuemax='{2}' style='width: {3}%;'> 
-<span class='sr-only'>{3}% Complete</span>
-</div>", ProgressValue, ProgressMin, ProgressMax, progressPercentage);
+         string progressBarContent =             
+$@"<div class='progress-bar' role='progressbar' aria-valuenow='{ProgressValue}' aria-valuemin='{ProgressMin}' aria-valuemax='{ProgressMax}' style='width: {progressPercentage}%;'> 
+   <span class='sr-only'>{progressPercentage}% Complete</span>
+</div>";
 
          output.Content.Append(progressBarContent);
 
