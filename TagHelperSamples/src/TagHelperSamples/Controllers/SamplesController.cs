@@ -39,6 +39,11 @@ namespace TagHelperSamples.Controllers
             return View(model);
         }
 
+        public IActionResult ModalTagHelper()
+        {
+            return View();
+        }
+
 
         public IActionResult TextEntryTagHelper(TestModel model = null)
         {
