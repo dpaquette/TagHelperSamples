@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace TagHelperSamples.TagHelpers
 {
+    /// <summary>
+    /// The modal-body portion of a Bootstrap modal dialog
+    /// </summary>
     public class ModalBodyTagHelper : TagHelper
     {
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)

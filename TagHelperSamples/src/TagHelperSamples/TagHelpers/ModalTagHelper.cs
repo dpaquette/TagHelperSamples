@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
-using System;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.TagHelpers
 {
+    /// <summary>
+    /// A Bootstrap modal dialog
+    /// </summary>
     public class ModalTagHelper : TagHelper
     {
         /// <summary>
@@ -25,7 +27,7 @@ $@"<div class='modal-dialog' role='document'>
     <div class='modal-content'>
       <div class='modal-header'>
         <button type = 'button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-        <h4 class='modal-title' id='{Id}Label'>{Title}</h4>
+        <h4 class='modal-title' id='{context.UniqueId}Label'>{Title}</h4>
       </div>
         {content}
     </div>
@@ -33,7 +35,7 @@ $@"<div class='modal-dialog' role='document'>
             output.TagName = "div";
             output.Attributes["role"] = "dialog";
             output.Attributes["id"] = Id;
-            output.Attributes["aria-labelledby"] = $"{Id}Label";
+            output.Attributes["aria-labelledby"] = $"{context.UniqueId}Label";
             output.Attributes["tabindex"] = "-1";
             var classNames = "modal fade";
             if (output.Attributes.ContainsName("class"))

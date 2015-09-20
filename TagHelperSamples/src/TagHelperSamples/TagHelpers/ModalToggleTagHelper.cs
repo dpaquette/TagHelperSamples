@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
-using System;
-using System.Threading.Tasks;
 
 namespace TagHelperSamples.TagHelpers
 {
+    /// <summary>
+    /// Sets the element as the item that will toggle the specified Bootstrap modal dialog
+    /// </summary>
     [TargetElement(Attributes = ModalTargetAttributeName)]
     public class ModalToggleTagHelper : TagHelper
     {
