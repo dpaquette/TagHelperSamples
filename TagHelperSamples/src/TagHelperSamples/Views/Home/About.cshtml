@@ -1,6 +1,6 @@
 ﻿@using System.Threading.Tasks
 @using TagHelperSamples.Model
-@model TagHelperSamples.Model.TestModel
+@model TestModel
 @{
     ViewData["Title"] = "About";
 }
@@ -28,4 +28,20 @@
            header="Error!"
            dismissible="true">
     </alert>
+</div>
+
+<div class="sample">
+    <h3>Modal TagHelper</h3>
+    <button type="button"
+            class="btn btn-primary btn-lg"
+            bs-toggle-modal="simpleModal">
+        Launch modal
+    </button>
+    <modal id="simpleModal"
+           title="Modal Title">
+        <modal-body>
+            <h4>Something happened</h4>
+            <p>Something happened</p>
+        </modal-body>
+    </modal>
 </div>
