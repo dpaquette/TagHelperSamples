@@ -19,7 +19,7 @@ namespace TagHelperSamples.TagHelpers
     /// Simple tag helper that creates a label and textbox combination in
     /// easier to read HTML than the full bootstrap form-group format.
     /// </summary>
-    [TargetElement("text-entry")]
+    [HtmlTargetElement("text-entry")]
     public class TextEntryTagHelper : TagHelper
     {
         /// <summary>
@@ -78,7 +78,7 @@ namespace TagHelperSamples.TagHelpers
 
             var ctl = new TagBuilder("label");
             ctl.Attributes.Add("for", Id);
-            ctl.SetInnerText(labelText);
+            ctl.InnerHtml.Append(labelText);
             sb.AppendLine(ctl.ToString());
 
             ctl = new TagBuilder("input");

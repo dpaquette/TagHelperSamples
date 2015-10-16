@@ -5,7 +5,7 @@ namespace TagHelperSamples.TagHelpers
     /// <summary>
     /// Sets the element as the item that will toggle the specified Bootstrap modal dialog
     /// </summary>
-    [TargetElement(Attributes = ModalTargetAttributeName)]
+    [HtmlTargetElement(Attributes = ModalTargetAttributeName)]
     public class ModalToggleTagHelper : TagHelper
     {
         public const string ModalTargetAttributeName = "bs-toggle-modal";

@@ -32,7 +32,7 @@ namespace TagHelperSamples.TagHelpers
     /// <remarks>
     /// Requires FontAwesome in addition to bootstrap in order to display icons    
     /// </remarks>
-    [TargetElement("alert")]
+    [HtmlTargetElement("alert")]
     public class AlertTagHelper : TagHelper
     {
         /// <summary>
@@ -165,7 +165,7 @@ namespace TagHelperSamples.TagHelpers
                     "<hr/>\r\n" +
                     $"{messageText}\r\n");                
             }
-            output.Content.SetContent(sb.ToString());
+            output.Content.SetContentEncoded(sb.ToString());
         }
     }
 }
