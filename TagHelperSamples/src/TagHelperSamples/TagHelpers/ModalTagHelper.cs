@@ -44,7 +44,7 @@ $@"<div class='modal-dialog' role='document'>
             }
             output.Attributes["class"] = classNames;
 
-            output.Content.SetContent(template);
+            output.Content.SetContentEncoded(template);
         }
     }
 }

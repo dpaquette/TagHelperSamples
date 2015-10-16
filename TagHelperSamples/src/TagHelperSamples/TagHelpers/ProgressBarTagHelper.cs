@@ -3,7 +3,7 @@ using System;
 
 namespace TagHelperSamples.TagHelpers
 {
-   [TargetElement("div", Attributes = ProgressValueAttributeName)]
+   [HtmlTargetElement("div", Attributes = ProgressValueAttributeName)]
    public class ProgressBarTagHelper : TagHelper
    {
       private const string ProgressValueAttributeName = "bs-progress-value";
@@ -42,7 +42,7 @@ $@"<div class='progress-bar' role='progressbar' aria-valuenow='{ProgressValue}' 
    <span class='sr-only'>{progressPercentage}% Complete</span>
 </div>";
 
-         output.Content.Append(progressBarContent);
+         output.Content.AppendEncoded(progressBarContent);
 
          string classValue;
          if (output.Attributes.ContainsName("class"))
