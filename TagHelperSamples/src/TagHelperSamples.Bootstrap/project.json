@@ -1,10 +1,11 @@
 ﻿{
-    "version": "1.0.0-*",
-    "description": "TagHelperSamples.Bootstrap Class Library",
+    "version": "1.0.0.1",
+    "title": "TagHelperSamples.Bootstrap",
+    "description": "Tag Helper Samples for Bootstrap components",
     "authors": [ "David Paquette", "Rick Strahl", "Rick Anderson" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
+    "tags": [ "MVC6", "ASPNET5", "Tag Helper", "Bootstrap" ],
+    "projectUrl": "https://github.com/dpaquette/TagHelperSamples",
+    "licenseUrl": "https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt",
     "dependencies": {
         "Microsoft.AspNet.Mvc": "6.0.0-beta8",
         "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta8"
