@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples", "src\TagHelperSamples\TagHelperSamples.xproj", "{5923B03F-68E3-4C41-9961-687BDDE89BF5}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Web", "src\TagHelperSamples.Web\TagHelperSamples.Web.xproj", "{5923B03F-68E3-4C41-9961-687BDDE89BF5}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Bootstrap", "src\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.xproj", "{C97DB0CF-C2DD-48A3-8665-DCE56B831393}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,11 +25,16 @@ Global
 		{5923B03F-68E3-4C41-9961-687BDDE89BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5923B03F-68E3-4C41-9961-687BDDE89BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5923B03F-68E3-4C41-9961-687BDDE89BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5923B03F-68E3-4C41-9961-687BDDE89BF5} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
+		{C97DB0CF-C2DD-48A3-8665-DCE56B831393} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 	EndGlobalSection
 EndGlobal
