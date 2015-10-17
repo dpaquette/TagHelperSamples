@@ -21,7 +21,7 @@ namespace TagHelperSamples.Bootstrap
         public string DismissText { get; set; } = "Cancel";
 
 
-        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+        public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if (ShowDismiss)
             {
