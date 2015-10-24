@@ -1,3 +1,7 @@
+AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/28ml7n6pxd2qc69f/branch/master?svg=true)](https://ci.appveyor.com/project/DavidPaquette/taghelpersamples/branch/master)
+
+
+
 # Tag-helper-samples
 [TagHelper Samples](http://taghelpersamples.azurewebsites.net/)  running on Azure.
 Sample tag helpers that do useful work. 
