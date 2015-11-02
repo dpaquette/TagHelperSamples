@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Markdown Tag Helper";
+}
+<h2>Markdown Tag Helper</h2>
+<hr />
+
+<p>
+    This tag helper allows you to write Markdown in your Razor pages and converts that markdown to HTML.
+</p>
+
+<div class="sample">
+    <h3>Simple Markdown element</h3>
+    <markdown>This is some _simple_ **markdown**.</markdown>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;markdown&gt;This is some _simple_ **markdown**.&lt;/markdown&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>More Complex Markdown element</h3>
+    <markdown>
+A First Level Header
+====================
+
+A Second Level Header
+---------------------
+
+Now is the time for all good men to come to
+the aid of their country. This is just a
+regular paragraph.
+
+The quick brown fox jumped over the lazy
+dog's back.
+
+### Header 3
+
+> This is a blockquote.
+>
+> This is the second paragraph in the blockquote.
+>
+> ## This is an H2 in a blockquote
+    </markdown>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;markdown&gt;
+A First Level Header
+====================
+A Second Level Header
+---------------------
+Now is the time for all good men to come to
+the aid of their country. This is just a
+regular paragraph.
+The quick brown fox jumped over the lazy
+dog&#39;s back.
+### Header 3
+&gt; This is a blockquote.
+&gt;
+&gt; This is the second paragraph in the blockquote.
+&gt;
+&gt; ## This is an H2 in a blockquote
+&lt;/markdown&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Simple p element with markdown</h3>
+    <p markdown>This is some _simple_ **markdown** in a _p_ element.</p>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;p markdown&gt;This is some _simple_ **markdown** in a _p_ element.&lt;/p&gt;</code></pre>
+</div>

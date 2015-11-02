@@ -44,6 +44,11 @@ namespace TagHelperSamples.Web.Controllers
             return View();
         }
 
+        public IActionResult MarkdownTagHelper()
+        {
+            return View();
+        }
+
 
         public IActionResult TextEntryTagHelper(TestModel model = null)
         {
