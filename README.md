@@ -19,3 +19,13 @@ Then add the tag helpers to your _ViewImports.cshtml file:
 
 `@addTagHelper "*, TagHelperSamples.Bootstrap"`
 
+
+The Markdown Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Markdown).
+
+`Install-Package TagHelperSamples.Markdown`
+
+Then add the tag helpers to your _ViewImports.cshtml file:
+
+`@addTagHelper "*, TagHelperSamples.Markdown"`
+
+
