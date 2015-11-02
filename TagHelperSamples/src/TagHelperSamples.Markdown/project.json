@@ -1,0 +1,17 @@
+﻿{
+    "version": "1.0.0.1",
+    "title": "TagHelperSamples.Markdown",
+    "description": "Tag Helper Samples for Markdown",
+    "authors": [ "David Paquette"],
+    "tags": [ "MVC6", "ASPNET5", "Tag Helper", "Markdown" ],
+    "projectUrl": "https://github.com/dpaquette/TagHelperSamples",
+    "licenseUrl": "https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt",
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-beta8",
+        "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta8",
+        "MarkdownSharp" :  "1.13.0"
+    },
+    "frameworks": {
+        "dnx451": { }
+    }
+}

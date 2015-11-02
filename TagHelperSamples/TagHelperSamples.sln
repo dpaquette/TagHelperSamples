@@ -15,6 +15,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Web", "src
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Bootstrap", "src\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.xproj", "{C97DB0CF-C2DD-48A3-8665-DCE56B831393}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Markdown", "src\TagHelperSamples.Markdown\TagHelperSamples.Markdown.xproj", "{DB87D552-AE71-408C-9ED8-DB1AC560328E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C97DB0CF-C2DD-48A3-8665-DCE56B831393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB87D552-AE71-408C-9ED8-DB1AC560328E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB87D552-AE71-408C-9ED8-DB1AC560328E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB87D552-AE71-408C-9ED8-DB1AC560328E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB87D552-AE71-408C-9ED8-DB1AC560328E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5923B03F-68E3-4C41-9961-687BDDE89BF5} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 		{C97DB0CF-C2DD-48A3-8665-DCE56B831393} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
+		{DB87D552-AE71-408C-9ED8-DB1AC560328E} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 	EndGlobalSection
 EndGlobal
