@@ -22,10 +22,8 @@ namespace TagHelperSamples.Web
             // Setup configuration sources.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(appEnv.ApplicationBasePath)
-                .AddJsonFile("config.json");
-
-   
-            builder.AddEnvironmentVariables();
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
 
