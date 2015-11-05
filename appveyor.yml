@@ -20,6 +20,10 @@ before_build:
 
 build_script:
  - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Bootstrap\project.json
+ - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Markdown\project.json
+ - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Markdown.Tests\project.json
  - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Web\project.json
  
-test: off
+test_script:
+ - ps: cd .\TagHelperSamples\src\TagHelperSamples.Markdown.Tests
+ - cmd: dnx test 
