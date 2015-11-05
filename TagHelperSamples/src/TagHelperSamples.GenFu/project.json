@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0.1",
+  "description": "TagHelperSamples.GenFu",
+  "authors": [ "David Paquette", "James Chambers" ],
+  "tags": [ "MVC6", "ASPNET5", "Tag Helper", "GenFu" ],
+  "projectUrl": "https://github.com/dpaquette/TagHelperSamples",
+  "licenseUrl": "https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt",
+  "dependencies": {
+    "GenFu": "1.0.3",
+    "Microsoft.AspNet.Mvc": "6.0.0-beta8",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta8"
+
+  },
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": {
+      "dependencies": {
+        "Microsoft.Cci": "4.0.0-beta-23409"
+      }
+    }
+  }
+}

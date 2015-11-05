@@ -64,5 +64,10 @@ namespace TagHelperSamples.Web.Controllers
             return View(model);
         }
 
+        public IActionResult GenFuTagHelper()
+        {
+            return View();
+        }
+
     }
 }
