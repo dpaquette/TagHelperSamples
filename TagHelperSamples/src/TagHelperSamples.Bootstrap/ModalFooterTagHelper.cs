@@ -29,8 +29,14 @@ namespace TagHelperSamples.Bootstrap
                 output.PreContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
             }
             var childContent = await context.GetChildContentAsync();
+            var footerContent = new DefaultTagHelperContent();
+            if (ShowDismiss)
+            {
+                footerContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
+            }
+            footerContent.Append(childContent);
             var modalContext = (ModalContext)context.Items[typeof(ModalTagHelper)];
-            modalContext.Footer = childContent;
+            modalContext.Footer = footerContent;
             output.SuppressOutput();
         }
     }
