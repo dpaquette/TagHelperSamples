@@ -20,7 +20,7 @@ namespace TagHelperSamples.Markdown
 
             var content = await GetContent(context);
             var markdown = content;
-            var html = CommonMarkConverter.Convert(markdown ?? "");
+            var html = CommonMarkConverter.Convert(markdown);
             output.Content.SetContentEncoded(html ?? "");
         }
 
