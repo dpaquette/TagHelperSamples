@@ -1,0 +1,59 @@
+﻿
+<h2>GenFu Tag Helper</h2>
+
+<hr />
+<p>
+    GenFu is a test and prototype data generation library targeting ASP.NET vNext. It understands different topics - such as "contact details" or "blog posts" and uses that understanding to to populate commonly named properties using reflection and an internal database of values or randomly created data.
+</p>
+<p>
+    You can use GenFu taghelpers to create data on the fly in your views.
+</p>
+<hr/>
+
+<div>
+    <h3>Simple Properties</h3>
+    <p>
+        <span genfu="firstname"></span>
+        <span genfu="phonenumber"></span>
+    </p>
+
+</div>
+
+<div class="sample">
+    <h4>Code</h4>
+    <pre><code class="html">    &lt;p&gt;
+            &lt;span genfu="firstname"&gt;&lt;/span&gt;
+            &lt;span genfu="phonenumber"&gt;&lt;/span&gt;
+    &lt;/p&gt;</code></pre>
+</div>
+
+<hr/>
+
+<div>
+    <h3>Whole Bunch of Data</h3>
+    <table class="table table-striped">
+        @for (int i = 0; i < 20; i++)
+        {
+            <tr>
+                <td><span genfu="firstname"></span></td>
+                <td><span genfu="lastname"></span></td>
+                <td><span genfu="phonenumber"></span></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="sample">
+    <h4>Code</h4>
+<pre><code class="html">    &lt;table class=&quot;table table-striped&quot;&gt;
+        @@for (int i = 0; i &lt; 20; i++)
+        {
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span genfu=&quot;firstname&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;span genfu=&quot;lastname&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;span genfu=&quot;phonenumber&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        }
+    &lt;/table&gt;
+</code></pre>
+</div>
