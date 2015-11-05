@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Markdown Tag Helper";
+    ViewData["MarkdownContent"] = "this **is** some *markdown*";
 }
 <h2>Markdown Tag Helper</h2>
 <hr />
@@ -13,6 +14,13 @@
     <markdown>This is some _simple_ **markdown**.</markdown>
     <h4>Code:</h4>
     <pre><code class="html">&lt;markdown&gt;This is some _simple_ **markdown**.&lt;/markdown&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Markdown element binded with content attribute</h3>
+    <markdown content="@ViewData["MarkdownContent"]"/>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;markdown content="@@ViewData["MarkdownContent"]" &lt;/markdown&gt;</code></pre>
 </div>
 
 <div class="sample">
