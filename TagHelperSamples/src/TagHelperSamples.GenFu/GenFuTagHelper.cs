@@ -29,9 +29,6 @@ namespace TagHelperSamples.GenFu
         [HtmlAttributeName("genfu-type")]
         public Type PropertyType { get; set; } = typeof(string);
 
-        public Dictionary<string, Type> genfud { get; set; }
-
-
         public GenFuTagHelper(ILibraryExporter exporter, IAssemblyLoadContextAccessor accessor)
         {
             _exporter = exporter;
@@ -42,7 +39,7 @@ namespace TagHelperSamples.GenFu
         {
             try
             {
-                var syntaxTrees = CSharpSyntaxTree.ParseText($"public class Fake {{ public string {PropertyName} {{ get; set;  }} }} ");
+                var syntaxTrees = CSharpSyntaxTree.ParseText($"public class Fake {{ public {PropertyType.FullName} {PropertyName} {{ get; set;  }} }} ");
                 var assemblyName = Guid.NewGuid().ToString();
                 var references = new List<MetadataReference>();
                 var export = _exporter.GetAllExports("TagHelperSamples.GenFu");
