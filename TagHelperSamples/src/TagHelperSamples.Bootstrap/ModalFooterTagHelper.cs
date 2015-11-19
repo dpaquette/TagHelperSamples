@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+﻿using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.Bootstrap
@@ -21,20 +22,22 @@ namespace TagHelperSamples.Bootstrap
         public string DismissText { get; set; } = "Cancel";
 
 
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             if (ShowDismiss)
             {
                 output.PreContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
             }
-            output.TagName = "div";
-            var classNames = "modal-footer";
-            if (output.Attributes.ContainsName("class"))
+            var childContent = await context.GetChildContentAsync();
+            var footerContent = new DefaultTagHelperContent();
+            if (ShowDismiss)
             {
-                classNames = string.Format("{0} {1}", output.Attributes["class"].Value, classNames);
+                footerContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
             }
-            output.Attributes["class"] = classNames;
-            
+            footerContent.Append(childContent);
+            var modalContext = (ModalContext)context.Items[typeof(ModalTagHelper)];
+            modalContext.Footer = footerContent;
+            output.SuppressOutput();
         }
     }
 }

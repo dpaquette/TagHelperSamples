@@ -7,15 +7,21 @@
 
         <environment names="Development">
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css">
+            <link rel="stylesheet" href="~/lib/highlightjs/styles/zenburn.css">
             <link rel="stylesheet" href="~/css/site.css" />
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         </environment>
         <environment names="Staging,Production">
-            <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
-                  asp-fallback-test-class="hidden" asp-fallback-test-property="visibility" asp-fallback-test-value="hidden" />
+            <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+                  asp-fallback-href="~/lib/fontawesome/css/font-awesome.min.css"
+                  asp-fallback-test-class="fa" asp-fallback-test-property="font-family" asp-fallback-test-value="FontAwesome" />
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/zenburn.min.css"
+                  asp-fallback-href="~/lib/highlightjs/styles/zenburn.css"
+                  asp-fallback-test-class="hljs" asp-fallback-test-property="display" asp-fallback-test-value="block">
             <link rel="stylesheet" href="~/css/site.css" asp-file-version="true" />
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         </environment>
     </head>
     <body>
@@ -49,25 +55,26 @@
         <environment names="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/lib/highlightjs/highlight.pack.js"></script>
+            <script src="~/js/site.js"></script>
         </environment>
         <environment names="Staging,Production">
             <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
                     asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                     asp-fallback-test="window.jQuery">
             </script>
-            <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/bootstrap.min.js"
+            <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
                     asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                     asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"
+                    asp-fallback-src="~/lib/highlightjs/highlight.pack.min.js"
+                    asp-fallback-test="window.hljs">
             </script>
             <script src="~/js/site.js" asp-file-version="true"></script>
         </environment>
 
-        
         @RenderSection("scripts", required: false)
-
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/zenburn.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
 
     </body>
 </html>
