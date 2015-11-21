@@ -6,14 +6,14 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using GenFu;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.Dnx.Compilation;
 using Microsoft.Dnx.Compilation.CSharp;
 using Microsoft.Dnx.Runtime;
+using Microsoft.AspNet.Razor.TagHelpers;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace TagHelperSamples.GenFu
 {

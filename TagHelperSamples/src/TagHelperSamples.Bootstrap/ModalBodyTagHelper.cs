@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 using System;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace TagHelperSamples.Bootstrap
     {
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            var childContent = await context.GetChildContentAsync();
+            var childContent = await output.GetChildContentAsync();
             var modalContext = (ModalContext)context.Items[typeof(ModalTagHelper)];
             modalContext.Body = childContent;
             output.SuppressOutput();

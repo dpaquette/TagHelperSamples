@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 
 namespace TagHelperSamples.Markdown.Tests.Helpers
 {
@@ -17,27 +17,30 @@ namespace TagHelperSamples.Markdown.Tests.Helpers
             _outputAttributes = new TagHelperAttributeList();
         }
 
-        private Func<bool, Task<TagHelperContent>> SetChildContent(string childContent)
+        private Func<bool, Task<TagHelperContent>> GetChildContent(string childContent)
         {
             var content = new DefaultTagHelperContent();
             var tagHelperContent = content.SetContent(childContent);
             return b => Task.FromResult(tagHelperContent);
         }
 
-        public TagHelperContext CreateContext(string tagContent, bool hasMarkdownAttribute)
+        public TagHelperContext CreateContext(bool hasMarkdownAttribute)
         {
-            var childContent = SetChildContent(tagContent);
+            
             if (hasMarkdownAttribute)
                 _inputAttributes.Add(new TagHelperAttribute("markdown", ""));
-            var context = new TagHelperContext(_inputAttributes, _items, Guid.NewGuid().ToString(), childContent);
+            var context = new TagHelperContext(_inputAttributes, _items, Guid.NewGuid().ToString());
             return context;
         }
 
-        public TagHelperOutput CreateOutput(string tagName, bool hasMarkdownAttribute)
+        public TagHelperOutput CreateOutput(string tagName, bool hasMarkdownAttribute, string tagContent)
         {
+            var childContent = GetChildContent(tagContent);
             if (hasMarkdownAttribute)
                 _outputAttributes.Add(new TagHelperAttribute("markdown", ""));
-            return new TagHelperOutput(tagName, _outputAttributes);
+                       
+            return new TagHelperOutput(tagName, 
+                _outputAttributes, GetChildContent(tagContent));
         }
     }
 }

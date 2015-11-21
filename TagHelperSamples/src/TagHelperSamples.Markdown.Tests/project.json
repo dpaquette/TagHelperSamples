@@ -9,7 +9,7 @@
     "dependencies": {
         "TagHelperSamples.Markdown": "1.0.0.1",
         "xunit": "2.1.0",
-        "xunit.runner.dnx": "2.1.0-beta6-build191"
+        "xunit.runner.dnx": "2.1.0-rc1-build204"
     },
   "commands": {
     "test": "xunit.runner.dnx"
@@ -19,10 +19,10 @@
     "dnx451": { },
     "dnxcore50" : {
       "dependencies": {
-        "System.Collections": "4.0.11-beta-23225",
-        "System.Linq": "4.0.1-beta-23225",
-        "System.Threading": "4.0.11-beta-23225",
-        "Microsoft.CSharp": "4.0.1-beta-23225"
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Threading": "4.0.11-beta-23516",
+        "Microsoft.CSharp": "4.0.1-beta-23516"
       }
     }
   }
