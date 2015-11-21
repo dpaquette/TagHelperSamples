@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CommonMark;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 
 namespace TagHelperSamples.Markdown
 {
@@ -18,16 +18,16 @@ namespace TagHelperSamples.Markdown
             }
             output.Attributes.RemoveAll("markdown");
 
-            var content = await GetContent(context);
+            var content = await GetContent(output);
             var markdown = content;
             var html = CommonMarkConverter.Convert(markdown);
-            output.Content.SetContentEncoded(html ?? "");
+            output.Content.SetHtmlContent(html ?? "");
         }
 
-        private async Task<string> GetContent(TagHelperContext context)
+        private async Task<string> GetContent(TagHelperOutput output)
         {
             if (Content == null)
-                return (await context.GetChildContentAsync()).GetContent();
+                return (await output.GetChildContentAsync()).GetContent();
 
             return Content.Model?.ToString();
         }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+﻿using Microsoft.AspNet.Razor.TagHelpers;
 using System;
 
 namespace TagHelperSamples.Bootstrap
@@ -42,7 +42,7 @@ $@"<div class='progress-bar' role='progressbar' aria-valuenow='{ProgressValue}' 
    <span class='sr-only'>{progressPercentage}% Complete</span>
 </div>";
 
-         output.Content.AppendEncoded(progressBarContent);
+         output.Content.AppendHtml(progressBarContent);
 
          string classValue;
          if (output.Attributes.ContainsName("class"))

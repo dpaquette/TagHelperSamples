@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 
 /*
 This TH was written by Rick Strahl 
@@ -165,7 +165,7 @@ namespace TagHelperSamples.Bootstrap
                     "<hr/>\r\n" +
                     $"{messageText}\r\n");                
             }
-            output.Content.SetContentEncoded(sb.ToString());
+            output.Content.SetHtmlContent(sb.ToString());
         }
     }
 }

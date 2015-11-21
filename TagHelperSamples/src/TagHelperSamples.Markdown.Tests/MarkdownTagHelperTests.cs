@@ -30,8 +30,8 @@ namespace TagHelperSamples.Markdown.Tests
             var hasMarkdownAttribute = false;
             var tagName = "markdown";
 
-            var context = _helper.CreateContext("## Hello", hasMarkdownAttribute);
-            var output = _helper.CreateOutput(tagName, hasMarkdownAttribute);
+            var context = _helper.CreateContext(hasMarkdownAttribute);
+            var output = _helper.CreateOutput(tagName, hasMarkdownAttribute, "## Hello");
 
             // act
             await sut.ProcessAsync(context, output);
@@ -50,8 +50,8 @@ namespace TagHelperSamples.Markdown.Tests
             var hasMarkdownAttribute = true;
             var tagName = "article";
 
-            var context = _helper.CreateContext("# Hello", hasMarkdownAttribute);
-            var output = _helper.CreateOutput(tagName, hasMarkdownAttribute);
+            var context = _helper.CreateContext(hasMarkdownAttribute);
+            var output = _helper.CreateOutput(tagName, hasMarkdownAttribute, "# Hello");
 
             // act
             await sut.ProcessAsync(context, output);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Html.Abstractions;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.Bootstrap
@@ -32,7 +32,7 @@ namespace TagHelperSamples.Bootstrap
             var modalContext = new ModalContext();
             context.Items.Add(typeof(ModalTagHelper), modalContext);
 
-            await context.GetChildContentAsync();
+            await output.GetChildContentAsync();
 
             var template =
 $@"<div class='modal-dialog' role='document'>
@@ -54,20 +54,20 @@ $@"<div class='modal-dialog' role='document'>
                 classNames = string.Format("{0} {1}", output.Attributes["class"].Value, classNames);
             }
             output.Attributes["class"] = classNames;
-            output.Content.AppendEncoded(template);
+            output.Content.AppendHtml(template);
             if (modalContext.Body != null)
             {
                 output.Content.Append(modalContext.Body);
             }
-            output.Content.AppendEncoded("</div>");
+            output.Content.AppendHtml("</div>");
             if (modalContext.Footer != null)
             {
-                output.Content.AppendEncoded("<div class='modal-footer'>");
+                output.Content.AppendHtml("<div class='modal-footer'>");
                 output.Content.Append(modalContext.Footer);
-                output.Content.AppendEncoded("</div>");
+                output.Content.AppendHtml("</div>");
             }
             
-            output.Content.AppendEncoded("</div></div>");
+            output.Content.AppendHtml("</div></div>");
         }
     }
 }

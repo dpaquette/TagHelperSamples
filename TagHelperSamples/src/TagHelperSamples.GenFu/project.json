@@ -5,17 +5,17 @@
   "tags": [ "MVC6", "ASPNET5", "Tag Helper", "GenFu" ],
   "projectUrl": "https://github.com/dpaquette/TagHelperSamples",
   "licenseUrl": "https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt",
-  "dependencies": {
-    "GenFu": "1.0.3",
-    "Microsoft.AspNet.Mvc": "6.0.0-beta8",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta8"
+    "dependencies": {
+        "GenFu": "1.0.4",
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+        "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final"
 
-  },
+    },
   "frameworks": {
     "dnx451": { },
     "dnxcore50": {
       "dependencies": {
-        "Microsoft.Cci": "4.0.0-beta-23409"
+        "Microsoft.Cci": "4.0.0-beta-23516"
       }
     }
   }

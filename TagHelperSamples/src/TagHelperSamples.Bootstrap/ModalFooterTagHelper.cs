@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+using Microsoft.AspNet.Razor.TagHelpers;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.Bootstrap
@@ -28,7 +28,7 @@ namespace TagHelperSamples.Bootstrap
             {
                 output.PreContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
             }
-            var childContent = await context.GetChildContentAsync();
+            var childContent = await output.GetChildContentAsync();
             var footerContent = new DefaultTagHelperContent();
             if (ShowDismiss)
             {
