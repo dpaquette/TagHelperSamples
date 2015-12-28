@@ -7,6 +7,7 @@ namespace TagHelperSamples.Bootstrap
     /// <summary>
     /// The modal-footer portion of Bootstrap modal dialog
     /// </summary>
+    [HtmlTargetElement("modal-footer", ParentTag = "modal")]
     public class ModalFooterTagHelper : TagHelper
     {
         /// <summary>
