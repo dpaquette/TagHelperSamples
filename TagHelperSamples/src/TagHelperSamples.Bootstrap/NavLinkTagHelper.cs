@@ -45,9 +45,9 @@ namespace TagHelperSamples.Bootstrap
             string currentAction = ViewContext.RouteData.Values["Action"].ToString();
             bool res;
             if (!string.IsNullOrWhiteSpace(Controller) && !string.IsNullOrWhiteSpace(Action))
-                res = Controller == currentController && Action == currentAction;
+                res = Controller.ToLower() == currentController.ToLower() && Action.ToLower() == currentAction.ToLower();
             else if (!string.IsNullOrWhiteSpace(Action))
-                res = Action == currentAction;
+                res = Action.ToLower() == currentAction.ToLower();
             else
                 res = false;
             return res;

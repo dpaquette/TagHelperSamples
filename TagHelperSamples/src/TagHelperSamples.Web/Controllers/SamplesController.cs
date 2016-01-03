@@ -44,6 +44,11 @@ namespace TagHelperSamples.Web.Controllers
             return View();
         }
 
+        public IActionResult NavLinkTagHelper()
+        {
+            return View();
+        }
+
         public IActionResult MarkdownTagHelper()
         {
             return View();

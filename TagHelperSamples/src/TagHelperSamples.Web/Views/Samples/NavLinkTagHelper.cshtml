@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "NavLink TagHelper";
+}
+<h2>NavLink Tag Helper</h2>
+<hr />
+
+<p>
+    <i class="small">contributed by <a href="https://github.com/EvAlex">Alexander Pavlyuk</a></i>
+</p>
+
+<p>
+    This tag helper helps creating navbar links that become active when the user sees corresponding page.
+    It works in conjunction with AnchorTagHelper and its asp-controller and asp-action attributes.
+</p>
+<p>
+    Nav links in Bootstrap are <strong>li</strong> with <strong>a</strong> inside. When <strong>li</strong>
+    has class "active", nav link is in active state. ASP.NET 5 AnchorTagHelper provides with a very easy
+    MVC-style way of configuring hrefs of anchor tags - asp-controller and asp-action attributes.
+    NavLinkTagHelper works just like AnchorTagHelper, but creates not just anchor tag, but li tag with anchor tag
+    inside. Moreover, it checks whether specified controller and action are current and sets "active" class for
+    li tag in that case. Works like a magic.
+</p>
+
+
+<div class="sample">
+    <h3>Example</h3>
+    <p>Take a look at nav link at the right side of the navbar for live example.</p>
+    @section navbar {
+        <ul class="nav navbar-nav navbar-right">
+            <nav-link asp-controller="Samples" asp-action="NavLinkTagHelper">NavLink Tag Helper</nav-link>
+        </ul>
+    }
+
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;nav-link asp-controller=&quot;Samples&quot; asp-action=&quot;NavLinkTagHelper&quot;&gt;NavLink Tag Helper&lt;/nav-link&gt;</code></pre>
+    <h4>Is the same as the following code (when not on that page):</h4>
+    <pre><code class="html">&lt;li&gt;<br />    &lt;a asp-controller=&quot;Samples&quot; asp-action=&quot;NavLinkTagHelper&quot;&gt;NavLink Tag Helper&lt;/a&gt;<br />&lt;/li&gt;</code></pre>
+    <h4>Or is the same as the following code (when on that page):</h4>
+    <pre><code class="html">&lt;li class=&quot;active&quot;&gt;<br />    &lt;a asp-controller=&quot;Samples&quot; asp-action=&quot;NavLinkTagHelper&quot;&gt;NavLink Tag Helper&lt;/a&gt;<br />&lt;/li&gt;</code></pre>
+</div>
