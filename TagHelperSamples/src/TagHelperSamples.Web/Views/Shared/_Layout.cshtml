@@ -41,6 +41,7 @@
                         <li><a asp-controller="Home" asp-action="About"><i class="fa fa-list-ul"></i> Summary</a></li>
                         <li><a asp-controller="Home" asp-action="Contact"><i class="fa fa-github"></i> GitHub</a></li>
                     </ul>
+                    @RenderSection("navbar", required: false)
                 </div>
             </div>
         </div>
