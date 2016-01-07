@@ -48,6 +48,8 @@ namespace TagHelperSamples.Bootstrap
                 res = Controller.ToLower() == currentController.ToLower() && Action.ToLower() == currentAction.ToLower();
             else if (!string.IsNullOrWhiteSpace(Action))
                 res = Action.ToLower() == currentAction.ToLower();
+            else if (!string.IsNullOrWhiteSpace(Controller))
+                res = Controller.ToLower() == currentController.ToLower();
             else
                 res = false;
             return res;
