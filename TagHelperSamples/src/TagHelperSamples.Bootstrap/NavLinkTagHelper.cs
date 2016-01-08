@@ -48,6 +48,8 @@ namespace TagHelperSamples.Bootstrap
                 res = Controller.ToLower() == currentController.ToLower() && Action.ToLower() == currentAction.ToLower();
             else if (!string.IsNullOrWhiteSpace(Action))
                 res = Action.ToLower() == currentAction.ToLower();
+            else if (!string.IsNullOrWhiteSpace(Controller))
+                res = Controller.ToLower() == currentController.ToLower();
             else
                 res = false;
             return res;
@@ -64,7 +66,7 @@ namespace TagHelperSamples.Bootstrap
             else if (classAttr.Value == null || classAttr.Value.ToString().IndexOf("active") < 0)
             {
                 classAttr.Value = classAttr.Value == null
-                    ? "value"
+                    ? "active"
                     : classAttr.Value.ToString() + " active";
             }
         }
