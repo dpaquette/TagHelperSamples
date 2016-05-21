@@ -1,4 +1,4 @@
-version: 1.0.1.{build}.{branch}
+version: 1.1.0.{build}.{branch}
 
 nuget:
   account_feed: true
@@ -10,20 +10,14 @@ install:
  - cmd: nuget sources add -Name api.nuget.org -Source https://api.nuget.org/v3/index.json
 
 before_build:
- - ps: "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
- - cmd: dnvm install 1.0.0-rc1-final
- - cmd: dnvm upgrade
- - cmd: dnvm update-self
- - cmd: dnvm list
- - cmd: dnvm use 1.0.0-rc1-final
- - cmd: dnu restore
+ - cmd: dotnet restore
 
 build_script:
- - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Bootstrap\project.json
- - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Markdown\project.json
- - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Markdown.Tests\project.json
- - cmd: dnu build TagHelperSamples\src\TagHelperSamples.Web\project.json
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Web
  
 test_script:
  - ps: cd .\TagHelperSamples\src\TagHelperSamples.Markdown.Tests
- - cmd: dnx test 
+ - cmd: dotnet test 

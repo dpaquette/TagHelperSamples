@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.TagHelpers;
-using Microsoft.AspNet.Mvc.ViewFeatures;
-using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,9 +65,9 @@ namespace TagHelperSamples.Bootstrap
             }
             else if (classAttr.Value == null || classAttr.Value.ToString().IndexOf("active") < 0)
             {
-                classAttr.Value = classAttr.Value == null
+                output.Attributes.SetAttribute("class", classAttr.Value == null
                     ? "active"
-                    : classAttr.Value.ToString() + " active";
+                    : classAttr.Value.ToString() + " active");
             }
         }
 

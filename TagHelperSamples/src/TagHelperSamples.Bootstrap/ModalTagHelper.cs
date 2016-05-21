@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNet.Html.Abstractions;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.Bootstrap
@@ -44,26 +43,26 @@ $@"<div class='modal-dialog' role='document'>
         <div class='modal-body'>";
 
             output.TagName = "div";
-            output.Attributes["role"] = "dialog";
-            output.Attributes["id"] = Id;
-            output.Attributes["aria-labelledby"] = $"{context.UniqueId}Label";
-            output.Attributes["tabindex"] = "-1";
+            output.Attributes.SetAttribute("role", "dialog");
+            output.Attributes.SetAttribute("id", Id);
+            output.Attributes.SetAttribute("aria-labelledby", $"{context.UniqueId}Label");
+            output.Attributes.SetAttribute("tabindex", "-1");
             var classNames = "modal fade";
             if (output.Attributes.ContainsName("class"))
             {
                 classNames = string.Format("{0} {1}", output.Attributes["class"].Value, classNames);
             }
-            output.Attributes["class"] = classNames;
+            output.Attributes.SetAttribute("class", classNames);
             output.Content.AppendHtml(template);
             if (modalContext.Body != null)
             {
-                output.Content.Append(modalContext.Body);
+                output.Content.AppendHtml(modalContext.Body);
             }
             output.Content.AppendHtml("</div>");
             if (modalContext.Footer != null)
             {
                 output.Content.AppendHtml("<div class='modal-footer'>");
-                output.Content.Append(modalContext.Footer);
+                output.Content.AppendHtml(modalContext.Footer);
                 output.Content.AppendHtml("</div>");
             }
             

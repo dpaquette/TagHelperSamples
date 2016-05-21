@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Threading.Tasks;
 
 namespace TagHelperSamples.Bootstrap
@@ -35,7 +35,7 @@ namespace TagHelperSamples.Bootstrap
             {
                 footerContent.AppendFormat(@"<button type='button' class='btn btn-default' data-dismiss='modal'>{0}</button>", DismissText);
             }
-            footerContent.Append(childContent);
+            footerContent.AppendHtml(childContent);
             var modalContext = (ModalContext)context.Items[typeof(ModalTagHelper)];
             modalContext.Footer = footerContent;
             output.SuppressOutput();

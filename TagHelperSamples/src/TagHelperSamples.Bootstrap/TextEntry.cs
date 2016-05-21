@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Razor.TagHelpers;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 /*
 This TH was written by Rick Strahl 

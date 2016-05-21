@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 
 namespace TagHelperSamples.Bootstrap
@@ -47,14 +47,14 @@ $@"<div class='progress-bar' role='progressbar' aria-valuenow='{ProgressValue}' 
          string classValue;
          if (output.Attributes.ContainsName("class"))
          {
-            classValue = string.Format("{0} {1}", output.Attributes["class"], "progress");
+            classValue = string.Format("{0} {1}", output.Attributes["class"].Value, "progress");
          }
          else
          {
             classValue = "progress";
          }
 
-         output.Attributes["class"] = classValue;
+         output.Attributes.SetAttribute("class", classValue);
 
          base.Process(context, output);
       }
