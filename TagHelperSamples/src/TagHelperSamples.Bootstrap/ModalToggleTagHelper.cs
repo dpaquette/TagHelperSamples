@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace TagHelperSamples.Bootstrap
 {
@@ -19,8 +19,8 @@ namespace TagHelperSamples.Bootstrap
       
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.Attributes["data-toggle"] = "modal";
-            output.Attributes["data-target"] = $"#{ToggleModal}";
+            output.Attributes.SetAttribute("data-toggle", "modal");
+            output.Attributes.SetAttribute("data-target", $"#{ToggleModal}");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.Linq;
 using System.Threading.Tasks;
 using TagHelperSamples.Markdown.Tests.Helpers;
 using Xunit;

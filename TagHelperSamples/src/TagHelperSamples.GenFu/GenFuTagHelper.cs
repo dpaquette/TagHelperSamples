@@ -9,10 +9,10 @@ using GenFu;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
-using Microsoft.Dnx.Compilation;
-using Microsoft.Dnx.Compilation.CSharp;
-using Microsoft.Dnx.Runtime;
-using Microsoft.AspNet.Razor.TagHelpers;
+
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.VisualStudio.Web.CodeGeneration.DotNet;
+using Microsoft.DotNet.ProjectModel;
 using Microsoft.Extensions.PlatformAbstractions;
 
 namespace TagHelperSamples.GenFu
@@ -20,8 +20,25 @@ namespace TagHelperSamples.GenFu
     [HtmlTargetElement(Attributes = "genfu")]
     public class GenFuTagHelper : TagHelper
     {
-        private readonly ILibraryExporter _exporter;
-        private readonly IAssemblyLoadContextAccessor _accessor;
+        private readonly IApplicationInfo _applicationInfo;
+        private static readonly List<MetadataReference> _references;
+
+        static GenFuTagHelper()
+        {
+            //TODO: Review with James. This stuff used to be wired up via DI but is not anymore. 
+            //      It was also very slow so I had to put it in a static constructor. Doing this for every tag helper instance was too slow.
+            var runtime = RuntimeEnvironmentExtensions.GetRuntimeIdentifier(PlatformServices.Default.Runtime);
+            var projectContext = ProjectContext.CreateContextForEachFramework(Directory.GetCurrentDirectory(), null, new[] { runtime }).First();
+            ApplicationInfo appInfo = new ApplicationInfo("TagHelperSamples.GenFu", PlatformServices.Default.Application.ApplicationBasePath);
+            ILibraryExporter exporter = new LibraryExporter(projectContext, appInfo);
+            _references = new List<MetadataReference>();
+            var exports = exporter.GetAllExports();
+            var metaDataRefs = exports.SelectMany(x => x.GetMetadataReferences()).ToList();
+            foreach (var reference in metaDataRefs)
+            {
+                _references.Add(reference);
+            }
+        }        
 
         [HtmlAttributeName("genfu")]
         public string PropertyName { get; set; }
@@ -29,28 +46,20 @@ namespace TagHelperSamples.GenFu
         [HtmlAttributeName("genfu-type")]
         public Type PropertyType { get; set; } = typeof(string);
 
-        public GenFuTagHelper(ILibraryExporter exporter, IAssemblyLoadContextAccessor accessor)
-        {
-            _exporter = exporter;
-            _accessor = accessor;
-        }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             try
             {
+                ICodeGenAssemblyLoadContext accessor = new DefaultAssemblyLoadContext();
+
                 var syntaxTrees = CSharpSyntaxTree.ParseText($"public class Fake {{ public {PropertyType.FullName} {PropertyName} {{ get; set;  }} }} ");
                 var assemblyName = Guid.NewGuid().ToString();
-                var references = new List<MetadataReference>();
-                var export = _exporter.GetAllExports("TagHelperSamples.GenFu");
-                foreach (var reference in export.MetadataReferences)
-                {
-                    references.Add(reference.ConvertMetadataReference(MetadataReferenceExtensions.CreateAssemblyMetadata));
-                }
+
 
                 var compilation = CSharpCompilation.Create(assemblyName)
                     .WithOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
-                    .AddReferences(references)
+                    .AddReferences(_references)
                     .AddSyntaxTrees(syntaxTrees);
 
                 Assembly assembly = null;
@@ -63,10 +72,10 @@ namespace TagHelperSamples.GenFu
                     if (compileResult.Success)
                     {
                         stream.Position = 0;
-                        assembly = _accessor.Default.LoadStream(stream, null);
+                        assembly = accessor.LoadStream(stream, null);
                     }
                 }
-                
+
                 // iterate over the types in the assembly
                 var types = assembly?.GetExportedTypes();
                 if (types?.Length == 1)
@@ -78,7 +87,7 @@ namespace TagHelperSamples.GenFu
                     output.Content.SetContent(propValue);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 output.Content.SetContent("Whoops");
             }

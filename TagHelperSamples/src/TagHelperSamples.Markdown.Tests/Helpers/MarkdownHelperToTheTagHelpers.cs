@@ -1,27 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Razor.TagHelpers;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.Text.Encodings.Web;
 
 namespace TagHelperSamples.Markdown.Tests.Helpers
 {
     public class MarkdownHelperToTheTagHelpers
     {
-        private readonly List<IReadOnlyTagHelperAttribute> _inputAttributes;
+        private readonly TagHelperAttributeList _inputAttributes;
         private readonly Dictionary<object, object> _items = new Dictionary<object, object>();
         private readonly TagHelperAttributeList _outputAttributes;
 
         public MarkdownHelperToTheTagHelpers()
         {
-            _inputAttributes = new List<IReadOnlyTagHelperAttribute>();
+            _inputAttributes = new TagHelperAttributeList();
             _outputAttributes = new TagHelperAttributeList();
         }
 
-        private Func<bool, Task<TagHelperContent>> GetChildContent(string childContent)
+        private Func<bool, HtmlEncoder, Task<TagHelperContent>> GetChildContent(string childContent)
         {
             var content = new DefaultTagHelperContent();
             var tagHelperContent = content.SetContent(childContent);
-            return b => Task.FromResult(tagHelperContent);
+            return (b, encoder) => Task.FromResult(tagHelperContent);
         }
 
         public TagHelperContext CreateContext(bool hasMarkdownAttribute)
