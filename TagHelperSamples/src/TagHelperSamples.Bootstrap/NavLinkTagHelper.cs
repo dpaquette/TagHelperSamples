@@ -19,10 +19,10 @@ namespace TagHelperSamples.Bootstrap
         [ViewContext]
         public ViewContext ViewContext { get; set; }
 
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public async override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            string content = output.GetChildContentAsync().Result.GetContent();
-            base.Process(context, output);
+            var childContent = await output.GetChildContentAsync();
+            string content = childContent.GetContent();
             output.TagName = "li";
             var hrefAttr = output.Attributes.FirstOrDefault(a => a.Name == "href");
             if (hrefAttr != null)

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CommonMark;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace TagHelperSamples.Markdown
 {

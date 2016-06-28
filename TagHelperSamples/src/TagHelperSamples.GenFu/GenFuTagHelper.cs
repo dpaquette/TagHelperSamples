@@ -26,9 +26,8 @@ namespace TagHelperSamples.GenFu
         static GenFuTagHelper()
         {
             //TODO: Review with James. This stuff used to be wired up via DI but is not anymore. 
-            //      It was also very slow so I had to put it in a static constructor. Doing this for every tag helper instance was too slow.
-            var runtime = RuntimeEnvironmentExtensions.GetRuntimeIdentifier(PlatformServices.Default.Runtime);
-            var projectContext = ProjectContext.CreateContextForEachFramework(Directory.GetCurrentDirectory(), null, new[] { runtime }).First();
+            //      It was also very slow so I had to put it in a static constructor. Doing this for every tag helper instance was too slow.            
+            var projectContext = ProjectContext.CreateContextForEachFramework(Directory.GetCurrentDirectory(), null, new[] { PlatformServices.Default.Application.RuntimeFramework.FullName }).First();
             ApplicationInfo appInfo = new ApplicationInfo("TagHelperSamples.GenFu", PlatformServices.Default.Application.ApplicationBasePath);
             ILibraryExporter exporter = new LibraryExporter(projectContext, appInfo);
             _references = new List<MetadataReference>();

@@ -4,7 +4,7 @@
     "description": "ASP.NET Core MVC Tag Helpers for Bootstrap. These allow you to easily create Bootstrap component like Progress Bars, Modals and Alerts",
     "authors": [ "David Paquette", "Rick Strahl", "Rick Anderson" ],
     "dependencies": {
-        "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final"
+        "Microsoft.AspNetCore.Mvc": "1.0.0"
     },
     "tools": {
         "Microsoft.AspNetCore.Razor.Tools": {
@@ -23,7 +23,7 @@
     },
     "frameworks": {
         "net451": { },
-        "netstandard1.5": {
+        "netstandard1.6": {
             "imports": [
                 "portable-net45+win8"
             ]
