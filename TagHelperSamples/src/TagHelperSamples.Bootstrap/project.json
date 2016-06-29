@@ -1,5 +1,5 @@
 ﻿{
-    "version": "1.1.0.0",
+    "version": "1.1.1.0",
     "title": "TagHelperSamples.Bootstrap",
     "description": "ASP.NET Core MVC Tag Helpers for Bootstrap. These allow you to easily create Bootstrap component like Progress Bars, Modals and Alerts",
     "authors": [ "David Paquette", "Rick Strahl", "Rick Anderson" ],

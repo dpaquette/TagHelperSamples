@@ -1,5 +1,5 @@
 ﻿{
-    "version": "1.1.0.0",
+    "version": "1.1.1.0",
     "title": "TagHelperSamples.Markdown",
     "description": "A Tag Helper that dynamically converts Markdown to HTML. Allows you to write Markdown in your razor pages.",
     "authors": [ "David Paquette", "Maxime Rouiller" ],
