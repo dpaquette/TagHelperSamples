@@ -16,11 +16,10 @@ namespace TagHelperSamples.Bootstrap
         {
         }
 
-        [ViewContext]
-        public ViewContext ViewContext { get; set; }
-
         public async override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            base.Process(context, output);
+
             var childContent = await output.GetChildContentAsync();
             string content = childContent.GetContent();
             output.TagName = "li";
