@@ -10,35 +10,7 @@ namespace TagHelperSamples.Bootstrap
     [RestrictChildren("panel-title", "panel-body", "panel-footer")]
     public class PanelTagHelper : TagHelper
     {
-        public string Type { get; set; }
-
-        private bool IsValidPanelType()
-        {
-            bool result = false;
-            switch (Type.ToLower())
-            {
-                case "primary":
-                    result = true;
-                    break;
-
-                case "success":
-                    result = true;
-                    break;
-
-                case "info":
-                    result = true;
-                    break;
-
-                case "warning":
-                    result = true;
-                    break;
-
-                case "danger":
-                    result = true;
-                    break;
-            }
-            return result;
-        }
+        public PanelType Type { get; set; }
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
@@ -49,10 +21,8 @@ namespace TagHelperSamples.Bootstrap
 
             output.TagName = "div";
 
-            if (!string.IsNullOrWhiteSpace(Type) && IsValidPanelType())
-                output.Attributes.Add("class", $"panel panel-{Type.ToLower()}");
-            else
-                output.Attributes.Add("class", "panel panel-default");
+            // Default panel type will be panel-default
+            output.Attributes.Add("class", $"panel panel-{Type.ToString().ToLower()}");
 
             // panel title
             if (panelContext.Title != null)
