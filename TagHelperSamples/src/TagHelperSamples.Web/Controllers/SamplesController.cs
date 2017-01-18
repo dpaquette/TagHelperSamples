@@ -49,6 +49,11 @@ namespace TagHelperSamples.Web.Controllers
             return View();
         }
 
+        public IActionResult PanelTagHelper()
+        {
+            return View();
+        }
+
         public IActionResult MarkdownTagHelper()
         {
             return View();
