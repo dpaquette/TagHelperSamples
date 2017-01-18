@@ -1,0 +1,213 @@
+﻿@{
+    ViewBag.Title = "Panel TagHelper";
+}
+<h2>Panel Tag Helper</h2>
+<hr />
+<p>
+    <i class="small">contributed by <a href="http://dotnetcontext.com">Manoj Kulkarni</a></i>
+</p>
+<p>
+    This collection of tag helpers provides a less verbose syntax for showing a <a href="http://getbootstrap.com/components/#panels" target="_blank">Bootstrap Panel</a>.
+</p>
+<p><strong>Panel</strong> tag helper has optional <strong>type</strong> attribute which specify the type of bootstrap panel. eg. default, primary, success, info, warning, danger. If type attribute is not specified, then panel type is set to <strong>default</strong></p>
+<p>Panel title can be specified by using <strong>panel-title</strong> tag helper, body of the panel can be specified by using the <strong>panel-body</strong> tag helper and panel footer can be specified by using <strong>panel-footer</strong> tag helper</p>
+
+<div class="sample">
+    <h3>Simple bootstrap panel with body only:</h3>
+    <panel>
+        <panel-body>
+            Panel Content
+        </panel-body>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel&gt; 
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap panel with title and body:</h3>
+    <panel>
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel&gt;
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap panel including title, body and footer:</h3>
+    <panel>
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel&gt;
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+ &lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap Primary Panel:</h3>
+    <panel type="Primary">
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel type=&quot;Primary&quot;&gt; 
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap Success Panel:</h3>
+    <panel type="Success">
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel type=&quot;Success&quot;&gt; 
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap Info Panel:</h3>
+    <panel type="Info">
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel type=&quot;Info&quot;&gt; 
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap Warning Panel:</h3>
+    <panel type="Warning">
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel type=&quot;Warning&quot;&gt; 
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+<div class="sample">
+    <h3>Bootstrap Danger Panel:</h3>
+    <panel type="Danger">
+        <panel-title>
+            Panel Title
+        </panel-title>
+        <panel-body>
+            Panel Content
+        </panel-body>
+        <panel-footer>
+            Panel Footer
+        </panel-footer>
+    </panel>
+    <h4>Code:</h4>
+    <pre><code class="html">&lt;panel type=&quot;Danger&quot;&gt; 
+    &lt;panel-title&gt;
+        Panel Title
+    &lt;/panel-title&gt;
+    &lt;panel-body&gt;
+        Panel Content
+    &lt;/panel-body&gt;
+    &lt;panel-footer&gt;
+        Panel Footer
+    &lt;/panel-footer&gt;
+&lt;/panel&gt;</code></pre>
+</div>
+
+
