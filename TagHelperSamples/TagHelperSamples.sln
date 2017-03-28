@@ -1,25 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB09BAF0-6755-4698-BFBD-DF5A698F7428}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D9497243-034E-4C3F-ABC3-324D3E38AB28}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Web", "src\TagHelperSamples.Web\TagHelperSamples.Web.xproj", "{5923B03F-68E3-4C41-9961-687BDDE89BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.Web", "src\TagHelperSamples.Web\TagHelperSamples.Web.csproj", "{5923B03F-68E3-4C41-9961-687BDDE89BF5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Bootstrap", "src\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.xproj", "{C97DB0CF-C2DD-48A3-8665-DCE56B831393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.Bootstrap", "src\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.csproj", "{C97DB0CF-C2DD-48A3-8665-DCE56B831393}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Markdown", "src\TagHelperSamples.Markdown\TagHelperSamples.Markdown.xproj", "{DB87D552-AE71-408C-9ED8-DB1AC560328E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.Markdown", "src\TagHelperSamples.Markdown\TagHelperSamples.Markdown.csproj", "{DB87D552-AE71-408C-9ED8-DB1AC560328E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.Markdown.Tests", "src\TagHelperSamples.Markdown.Tests\TagHelperSamples.Markdown.Tests.xproj", "{650A5A85-5956-491E-9312-5E25A27D1108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.Markdown.Tests", "src\TagHelperSamples.Markdown.Tests\TagHelperSamples.Markdown.Tests.csproj", "{650A5A85-5956-491E-9312-5E25A27D1108}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TagHelperSamples.GenFu", "src\TagHelperSamples.GenFu\TagHelperSamples.GenFu.xproj", "{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.GenFu", "src\TagHelperSamples.GenFu\TagHelperSamples.GenFu.csproj", "{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
