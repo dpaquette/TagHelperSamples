@@ -10,7 +10,7 @@ install:
  - cmd: nuget sources add -Name api.nuget.org -Source https://api.nuget.org/v3/index.json
 
 before_build:
- - cmd: dotnet restore
+ - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
 
 build_script:
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
