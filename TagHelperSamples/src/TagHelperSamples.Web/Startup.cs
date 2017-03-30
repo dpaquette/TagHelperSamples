@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration.DotNet;
-using Microsoft.DotNet.ProjectModel;
 using System.IO;
 
 namespace TagHelperSamples.Web
