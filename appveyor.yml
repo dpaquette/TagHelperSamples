@@ -6,9 +6,6 @@ nuget:
 init:
   - git config --global core.autocrlf true
   
-install:
- - cmd: nuget sources add -Name api.nuget.org -Source https://api.nuget.org/v3/index.json
-
 before_build:
  - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
 
