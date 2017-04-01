@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>A Tag Helper that dynamically converts Markdown to HTML. Allows you to write Markdown in your razor pages.</Description>
+    <AssemblyTitle>TagHelperSamples.Markdown</AssemblyTitle>
+    <VersionPrefix>1.1.1.0</VersionPrefix>
+    <Authors>David Paquette;Maxime Rouiller</Authors>
+    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <AssemblyName>TagHelperSamples.Markdown</AssemblyName>
+    <PackageId>TagHelperSamples.Markdown</PackageId>
+    <PackageTags>AspNetCore;MVC;Core;Tag Helper;Markdown</PackageTags>
+    <PackageProjectUrl>https://github.com/dpaquette/TagHelperSamples</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/dpaquette/TagHelperSamples</RepositoryUrl>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);portable-net45+win8</PackageTargetFallback>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
+    <PackageReference Include="CommonMark.NET" Version="0.12.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
