@@ -1,3 +1,4 @@
+
 version: 1.1.0.{build}.{branch}
   
 init:
@@ -10,7 +11,7 @@ build_script:
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
- - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Web
+ - cmd: dotnet publish TagHelperSamples\src\TagHelperSamples.Web
  
 test_script:
  - ps: cd .\TagHelperSamples\src\TagHelperSamples.Markdown.Tests
