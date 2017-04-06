@@ -28,12 +28,5 @@ artifacts:
    type: WebDeployPackage
 
 deploy:
-- provider: WebDeploy
-  server: taghelper.scm.azurewebsites.net:443
-  website: taghelper
-  username: $taghelper
-  password:
-    secure: CgFnEznFovgqoW4AdUBrmYkT3aXb0cjK+7M/eX9ODYaTb5fP/yRVnaUKXHwUet22s7++qkquTwGNvBxwqjGubg==
-  artifact: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp1.0\WebSite.zip'
-  aspnet_core: true
-  aspnet_core_force_restart: true
+- provider: Environment
+  name: TagHelperSamples-Production
