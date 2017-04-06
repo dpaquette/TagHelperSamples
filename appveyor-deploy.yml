@@ -1,0 +1,35 @@
+version: 1.1.{build}
+
+branches:
+  only:
+  - master
+  
+image: Visual Studio 2017
+  
+init:
+  - git config --global core.autocrlf true
+  
+before_build:
+ - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
+
+build_script:
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
+ - cmd: dotnet publish TagHelperSamples\src\TagHelperSamples.Web
+ 
+artifacts:
+ - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp1.0\publish'
+   name: WebSite
+   type: WebDeployPackage
+
+deploy:
+- provider: WebDeploy
+  server: taghelper.scm.azurewebsites.net:443
+  website: taghelper
+  username: $taghelper
+  password:
+    secure: CgFnEznFovgqoW4AdUBrmYkT3aXb0cjK+7M/eX9ODYaTb5fP/yRVnaUKXHwUet22s7++qkquTwGNvBxwqjGubg==
+  artifact: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp1.0\publish\'
+  aspnet_core: true
+  aspnet_core_force_restart: true
