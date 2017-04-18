@@ -10,7 +10,7 @@ To use the [Bootstrap](http://getbootstrap.com/) AlertTagHelper  (authored by [R
 
 Click the *Summary* menu item to see the tag helpers in action. From the home link, select a tag helper to see a code snipet and the resulting UI.
 
-#Try it in your project
+# Try it in your project
 The Bootstrap Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Bootstrap).
 
 `Install-Package TagHelperSamples.Bootstrap`
