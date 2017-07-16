@@ -8,6 +8,9 @@
     <PackageId>TagHelperSamples.Web</PackageId>
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <AssemblyVersion>1.1.2.0</AssemblyVersion>
+    <FileVersion>1.1.2.0</FileVersion>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TagHelperSamples.Authorization\TagHelperSamples.Authorization.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Markdown\TagHelperSamples.Markdown.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Markdown.Tests\TagHelperSamples.Markdown.Tests.csproj" />
