@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.0
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB09BAF0-6755-4698-BFBD-DF5A698F7428}"
 EndProject
@@ -19,6 +19,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.Markdown.Tests", "src\TagHelperSamples.Markdown.Tests\TagHelperSamples.Markdown.Tests.csproj", "{650A5A85-5956-491E-9312-5E25A27D1108}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagHelperSamples.GenFu", "src\TagHelperSamples.GenFu\TagHelperSamples.GenFu.csproj", "{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagHelperSamples.Authorization", "src\TagHelperSamples.Authorization\TagHelperSamples.Authorization.csproj", "{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +62,6 @@ Global
 		{DB87D552-AE71-408C-9ED8-DB1AC560328E} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 		{650A5A85-5956-491E-9312-5E25A27D1108} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 		{7F81CC79-928C-4544-A7B5-4B2BB1CC2E2C} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
+		{CA1011D8-15F5-4C48-ABBF-56C08EA1EC0D} = {EB09BAF0-6755-4698-BFBD-DF5A698F7428}
 	EndGlobalSection
 EndGlobal

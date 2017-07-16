@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Authorization Tag Helpers";
+}
+<h2>Authorization Tag Helpers</h2>
+<hr />
+
+<p>
+    These tag helpers allows you render blocks of HTML only for users who are authorized.
+</p>
+
+<div class="sample">
+    <a id="policy"></a>
+    <h3>Authorization Policy</h3>
+    <div asp-policy="Everyone">Everyone should see this because all users meet the requirements for this policy.</div>
+    <div asp-policy="Admin">You should only see this if you are an admin.</div>
+    <h4>Razor Code:</h4>
+    <pre><code class="html">&lt;div asp-policy="Everyone"&gt;Everyone should see this because all users meet the requirements for this policy.&lt;/div&gt;
+&lt;div asp-policy="Admin"&gt;You should only see this if you are an admin.&lt;/div&gt;</code></pre>
+    <h4>Startup.cs Code:</h4>
+    <pre><code class="csharp">services.AddAuthorization(o =&gt; 
+    {
+        o.AddPolicy("Admin", p =&gt;  p.RequireRole("Admin"));
+        //Just a fake policy that will always evaluate to true
+        o.AddPolicy("Everyone", p =&gt;  p.RequireAssertion((context =&gt;  true)));
+
+    }
+);</code></pre>
+</div>

@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TagHelperSamples.Authorization\TagHelperSamples.Authorization.csproj" />
+    <ProjectReference Include="..\TagHelperSamples.Authorization\TagHelperSamples.Authorization.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Bootstrap\TagHelperSamples.Bootstrap.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Markdown\TagHelperSamples.Markdown.csproj" />
     <ProjectReference Include="..\TagHelperSamples.Markdown.Tests\TagHelperSamples.Markdown.Tests.csproj" />

@@ -35,7 +35,19 @@ namespace TagHelperSamples.Web
         {
             // Add MVC services to the services container.
             services.AddMvc();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             
+            
+            services.AddAuthorization(o => 
+                {
+                    o.AddPolicy("Admin", p => p.RequireRole("Admin"));
+                    //Just a fake policy that will always evaluate to true
+                    o.AddPolicy("Everyone", p => p.RequireAssertion((context => true)));
+
+                }
+            );
+
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
