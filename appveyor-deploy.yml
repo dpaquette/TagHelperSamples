@@ -14,7 +14,9 @@ before_build:
 
 build_script:
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
+ - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Bootstrap
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown
+ - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Markdown
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
  - cmd: dotnet publish TagHelperSamples\src\TagHelperSamples.Web
  
@@ -25,7 +27,9 @@ test_script:
 artifacts:
  - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp1.0\publish'
    name: WebSite
-   type: WebDeployPackage
+   type: WebDeployPackage   
+ - path: '**\*.nupkg' 
+   type: 'NuGetPackage'
 
 deploy:
 - provider: Environment
