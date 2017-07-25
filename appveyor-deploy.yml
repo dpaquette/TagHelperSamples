@@ -13,10 +13,10 @@ before_build:
  - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
 
 build_script:
- - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap /p:PackageVersion=%appveyor_build_version%
- - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Bootstrap /p:PackageVersion=%appveyor_build_version%
- - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown /p:PackageVersion=%appveyor_build_version%
- - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Markdown /p:PackageVersion=%appveyor_build_version%
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version%
+ - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Bootstrap /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version% /p:PackageVersion=%appveyor_build_version% 
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version%
+ - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Markdown /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version% /p:PackageVersion=%appveyor_build_version%
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
  - cmd: dotnet publish TagHelperSamples\src\TagHelperSamples.Web
  
