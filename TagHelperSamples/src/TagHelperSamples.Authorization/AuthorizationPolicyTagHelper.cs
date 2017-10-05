@@ -22,7 +22,7 @@ namespace TagHelperSamples.Authorization
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            if (!(await _authorizationService.AuthorizeAsync(_httpContextAccessor.HttpContext.User, Policy)))
+            if (!(await _authorizationService.AuthorizeAsync(_httpContextAccessor.HttpContext.User, Policy)).Succeeded)
             {
                 output.SuppressOutput();
             }

@@ -3,9 +3,9 @@
   <PropertyGroup>
     <Description>ASP.NET Core MVC Tag Helpers for Authorization. These to easily render blocks of HTML only for those users who are authorized based on ASP.NET Core authorization policies</Description>
     <AssemblyTitle>TagHelperSamples.Authorization</AssemblyTitle>
-    <VersionPrefix>1.1.2.0</VersionPrefix>
+    <VersionPrefix>2.0.0.0</VersionPrefix>
     <Authors>David Paquette</Authors>
-    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>TagHelperSamples.Authorization</AssemblyName>
     <PackageId>TagHelperSamples.Authorization</PackageId>
     <PackageTags>AspNetCore;MVC;Core;Tag Helper;Authorization;Policy;Requirements;Resources</PackageTags>
@@ -13,7 +13,7 @@
     <PackageLicenseUrl>https://github.com/dpaquette/TagHelperSamples/blob/master/LICENSE.txt</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/dpaquette/TagHelperSamples</RepositoryUrl>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);portable-net45+win8</PackageTargetFallback>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -23,7 +23,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
   </ItemGroup>
 
 </Project>

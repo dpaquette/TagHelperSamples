@@ -6,11 +6,6 @@ namespace TagHelperSamples.Web.Controllers
 {
     public class SamplesController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult Authorization()
         {
@@ -72,11 +67,6 @@ namespace TagHelperSamples.Web.Controllers
                 };
             }
             return View(model);
-        }
-
-        public IActionResult GenFuTagHelper()
-        {
-            return View();
         }
 
     }
