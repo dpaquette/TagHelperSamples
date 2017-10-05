@@ -21,12 +21,12 @@
   </ItemGroup>
 
 
-  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+  <!--<Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
     <Exec Command="npm install" />
     <Exec Command="bower install" />
     <Exec Command="gulp clean" />
     <Exec Command="gulp min" />
-  </Target>
+  </Target>-->
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
