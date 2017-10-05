@@ -25,7 +25,7 @@ test_script:
  - cmd: dotnet test  
  
 artifacts:
- - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp1.0\publish'
+ - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp2.0\publish'
    name: WebSite
    type: WebDeployPackage   
  - path: '**\*.nupkg' 
