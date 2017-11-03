@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -23,8 +24,10 @@ namespace TagHelperSamples.Web
             services.AddMvc();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            
-            
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
             services.AddAuthorization(o => 
                 {
                     o.AddPolicy("Admin", p => p.RequireRole("Admin"));
@@ -57,6 +60,7 @@ namespace TagHelperSamples.Web
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>

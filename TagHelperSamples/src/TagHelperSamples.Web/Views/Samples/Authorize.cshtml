@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Authorize Tag Helper";
+}
+<h2>Authorize Tag Helper</h2>
+<hr />
+
+<p>
+    The Authorize tag helper allows you render blocks of HTML only for users who are authorized based on ASP.NET Core Authorization Roles and Policies. For example, a section of HTML might be rendered only if a user has the <i>Admin</i> role.
+    <br/>
+    <br/>
+    The Authorize tag helper works in the same way as the Authorize filter for controllers and action Methods. The examples below show some common use cases.  
+</p>
+
+<div class="sample">
+    <h2>Your current status</h2>
+    <ul>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li>You are Authenticated <form asp-controller="Samples" asp-action="LogOut" method="post" class="form-inline"><button type="submit" class="btn btn-default">Log Me Out</button></form></li>
+
+    }
+    else
+    {
+        <li>You are not Authenticated <form asp-controller="Samples" asp-action="LogIn" method="post" class="form-inline"><button type="submit" class="btn btn-default">Log Me In</button></form></li>
+
+    }
+            </ul>
+
+    <a id="policy"></a>
+    <h3>Authorize</h3>
+    <div asp-authorize>Only authenticated users can see this HTML</div>
+    <h4>Razor Code:</h4>
+    <pre><code class="html">&lt;div asp-authorize&gt;Only authenticated users can see this HTML&lt;/div&gt;</code></pre>
+    
+</div>

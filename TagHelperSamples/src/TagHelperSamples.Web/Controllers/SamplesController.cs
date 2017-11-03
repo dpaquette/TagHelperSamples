@@ -1,15 +1,38 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using TagHelperSamples.Web.Model;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace TagHelperSamples.Web.Controllers
 {
     public class SamplesController : Controller
     {
 
-        public IActionResult Authorization()
+        public IActionResult Authorize()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn()
+        {
+            var claimsIdentity = new ClaimsIdentity("TestAuthenticationType");
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+            return RedirectToAction("Authorize");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Authorize");
         }
 
         public IActionResult AlertTagHelper()
