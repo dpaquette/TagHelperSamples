@@ -84,6 +84,14 @@
                 </div>
             </div>
         </div>
+        <div asp-authorize asp-roles="Admin" asp-policy="Seniors" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Admin Seniors Only</div>
+                <div class="panel-body">
+                    Only users who have both the Admin role AND are age 65 or older can see this section.
+                </div>
+            </div>
+        </div>
     </div>
     <h4>Razor Code:</h4>
     <pre><code class="html">&lt;div asp-authorize&gt;Only authenticated users can see this HTML&lt;/div&gt;</code></pre>
