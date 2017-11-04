@@ -1,0 +1,141 @@
+﻿@using TagHelperSamples.Web.Model
+@model LoginModel
+@{
+    ViewBag.Title = "Authorize Tag Helper";
+}
+<style type="text/css">
+    .panel-body {
+        min-height: 125px;
+    }
+
+    .form-inline {
+        display: inline;
+    }
+</style>
+<h2>Authorize Tag Helper</h2>
+<hr />
+
+<p>
+    The Authorize tag helper allows you render blocks of HTML only for users who are authorized based on ASP.NET Core Authorization Roles and Policies. For example, a section of HTML might be rendered only if a user has the <i>Admin</i> role. Since everything is evaluated on the server, this tag helper provides an easy way to ensure that users only see the HTML sections they are supposed to see.
+    <br />
+    <br />
+    The Authorize tag helper works in the same way as the Authorize filter works for controllers and action Methods. The examples below show some common use cases.
+</p>
+
+<div class="sample">
+    <h2>Login Testing</h2>
+    <p class="text-muted">Use this section to login using different username, roles and age to see how the Authorize Tag Helper can be used to hide sections of HTML.</p>
+    <form asp-controller="Samples" asp-action="LogIn" method="post" class="form-inline">
+        <div class="form-group">
+            <label asp-for="UserName">User Name</label>
+            <select class="form-control" asp-for="UserName">
+                <option>Joe</option>
+                <option>Jane</option>
+                <option>Jim</option>
+                <option>James</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Role">Role</label>
+            <select class="form-control" asp-for="Role">
+                <option>User</option>
+                <option>Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Age">Age</label>
+            <select class="form-control" asp-for="Age">
+                <option>12</option>
+                <option>16</option>
+                <option>25</option>
+                <option>30</option>
+                <option>35</option>
+                <option>40</option>
+                <option>45</option>
+                <option>60</option>
+                <option>65</option>
+                <option>70</option>
+                <option>102</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Log Me In</button>
+    </form>
+ 
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form class="pull-right" asp-controller="Samples" asp-action="LogOut" method="post" class="form-inline"><button type="submit" class="btn btn-default">Log Me Out</button></form>
+
+    }
+
+    <a id="policy"></a>
+    <h3>Authorize</h3>
+    <div class="row">
+        <div asp-authorize class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Welcome @User.Identity.Name!!</div>
+                <div class="panel-body">
+                    If you're logged in, you can see this section
+                </div>
+            </div>
+        </div>
+        <div asp-authorize asp-roles="Admin" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Admin Section</div>
+                <div class="panel-body">
+                    Only admin users can see this section. Top secret admin things go here.
+                </div>
+            </div>
+        </div>
+        <div asp-authorize asp-policy="Seniors" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Seniors Only</div>
+                <div class="panel-body">
+                    Only users age 65 or older can see this section. Early bird dinner coupons go here. The app has a policy named Seniors which requires a claim of type <i>Age</i> with a value greater than or equal to <i>65</i>.
+                </div>
+            </div>
+        </div>
+        <div asp-authorize asp-roles="Admin" asp-policy="Seniors" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Admin Seniors Only</div>
+                <div class="panel-body">
+                    Only users who have both the Admin role AND are age 65 or older can see this section.
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4>Razor Code:</h4>
+    <pre><code class="html">&lt;div asp-authorize class="col-md-4"&gt;
+    &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading"&gt;Welcome @User.Identity.Name!!&lt;/div&gt;
+        &lt;div class="panel-body"&gt;
+            If you're logged in, you can see this section
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div asp-authorize asp-roles="Admin" class="col-md-4"&gt;
+    &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading"&gt;Admin Section&lt;/div&gt;
+        &lt;div class="panel-body"&gt;
+            Only admin users can see this section. Top secret admin things go here.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div asp-authorize asp-policy="Seniors" class="col-md-4"&gt;
+    &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading"&gt;Seniors Only&lt;/div&gt;
+        &lt;div class="panel-body"&gt;
+            Only users age 65 or older can see this section. Early bird dinner coupons go here. The app has a policy named Seniors which requires a claim of type &lt;i&gt;Age&lt;/i&gt; with a value greater than or equal to &lt;i&gt;65&lt;/i&gt;.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div asp-authorize asp-roles="Admin" asp-policy="Seniors" class="col-md-4"&gt;
+    &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading"&gt;Admin Seniors Only&lt;/div&gt;
+        &lt;div class="panel-body"&gt;
+            Only users who have both the Admin role AND are age 65 or older can see this section.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+</div>

@@ -1,15 +1,48 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using TagHelperSamples.Web.Model;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace TagHelperSamples.Web.Controllers
 {
     public class SamplesController : Controller
     {
 
-        public IActionResult Authorization()
+        public IActionResult Authorize()
         {
-            return View();
+            var model = new LoginModel();
+            if (User.Identity.IsAuthenticated)
+            {
+                model.UserName = User.Identity.Name;
+                model.Role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+                model.Age = User.Claims.FirstOrDefault(c => c.Type == "Age")?.Value;
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(LoginModel model)
+        {
+            var claimsIdentity = new ClaimsIdentity("TestAuthenticationType");
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, model.Role));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, model.UserName));
+            claimsIdentity.AddClaim(new Claim("Age", model.Age.ToString()));
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity));
+            return RedirectToAction("Authorize");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Authorize");
         }
 
         public IActionResult AlertTagHelper()
