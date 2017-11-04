@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace TagHelperSamples.Web
 {
@@ -28,11 +30,15 @@ namespace TagHelperSamples.Web
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();
 
-            services.AddAuthorization(o => 
+            services.AddAuthorization(o =>
                 {
-                    o.AddPolicy("Admin", p => p.RequireRole("Admin"));
-                    //Just a fake policy that will always evaluate to true
-                    o.AddPolicy("Everyone", p => p.RequireAssertion((context => true)));
+                    o.AddPolicy("Seniors", p =>
+                    {
+                        p.RequireAssertion(context =>
+                        {
+                            return context.User.Claims.Any(c => c.Type == "Age" && Int32.Parse(c.Value) >= 65);
+                        });
+                    });
 
                 }
             );
