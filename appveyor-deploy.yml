@@ -13,6 +13,8 @@ before_build:
  - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
 
 build_script:
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Authorization /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version%
+ - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Authorization /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version% /p:PackageVersion=%appveyor_build_version% 
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version%
  - cmd: dotnet pack TagHelperSamples\src\TagHelperSamples.Bootstrap /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version% /p:PackageVersion=%appveyor_build_version% 
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown /p:AssemblyVersion=%appveyor_build_version% /p:InformationalVersion=%appveyor_build_version%
