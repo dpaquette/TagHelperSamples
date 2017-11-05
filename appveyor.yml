@@ -8,6 +8,7 @@ before_build:
  - cmd: dotnet restore TagHelperSamples\TagHelperSamples.sln
 
 build_script:
+ - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Authorization
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Bootstrap
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown
  - cmd: dotnet build TagHelperSamples\src\TagHelperSamples.Markdown.Tests
