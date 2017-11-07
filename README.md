@@ -11,21 +11,31 @@ To use the [Bootstrap](http://getbootstrap.com/) AlertTagHelper  (authored by [R
 Click the *Summary* menu item to see the tag helpers in action. From the home link, select a tag helper to see a code snipet and the resulting UI.
 
 # Try it in your project
+
+## Bootstrap Tag Helpers
 The Bootstrap Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Bootstrap).
 
-`Install-Package TagHelperSamples.Bootstrap`
+`dotnet add package TagHelperSamples.Bootstrap`
 
 Then add the tag helpers to your _ViewImports.cshtml file:
 
 `@addTagHelper "*, TagHelperSamples.Bootstrap"`
 
-
+## Markdown Tag Helpers
 The Markdown Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Markdown).
 
-`Install-Package TagHelperSamples.Markdown`
+`dotnet add package TagHelperSamples.Markdown`
 
 Then add the tag helpers to your _ViewImports.cshtml file:
 
 `@addTagHelper "*, TagHelperSamples.Markdown"`
 
+## Authorize Tag Helper
 
+The Authorize Tag Helper is available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Authorization/).
+
+`dotnet add package TagHelperSamples.Authorization`
+
+Then add the tag helpers to your _ViewImports.cshtml file:
+
+`@addTagHelper "*, TagHelperSamples.Authorization"`
