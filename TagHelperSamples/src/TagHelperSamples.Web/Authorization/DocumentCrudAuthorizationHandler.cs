@@ -13,6 +13,7 @@ namespace TagHelperSamples.Web.Authorization
             Document resource)
         {
             if (context.User.Identity?.Name == resource.Author &&
+                context.User.IsInRole("Admin") &&
                 requirement.Name == Operations.Delete.Name)
             {
                 context.Succeed(requirement);

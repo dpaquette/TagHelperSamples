@@ -143,7 +143,7 @@
     <a id="authorizeresource"></a>
     <h3>Authorize Resource</h3>
     <p>Resource based authorization allows you to evaluate policies/requirements for the current user against a particular resource. You can read more about resource authorization <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?tabs=aspnetcore2x">here</a>.</p>
-    <p>The following examples shows the two uses for the Authorize Resource tag helper. First, we evaluate the "EditDocument" policy for the Edit link. Next, we evalute the "Operations.Delete" requirement for the Delete link. </p>
+    <p>The following examples shows the two uses for the Authorize Resource tag helper. First, we evaluate the <i>EditDocument</i> policy for the Edit link. Next, we evalute the <i>Operations.Delete</i> requirement for the Delete link. </p>
     <div class="row">
         <table class="table table-striped">
             <thead>
@@ -182,11 +182,11 @@
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
-        @foreach (Document document in ViewBag.Documents)
+       @@foreach (Document document in ViewBag.Documents)
         {
             &lt;tr&gt;
-            &lt;td&gt;@document.Title&lt;/td&gt;
-            &lt;td&gt;@document.Author&lt;/td&gt;
+            &lt;td&gt;@@document.Title&lt;/td&gt;
+            &lt;td&gt;@@document.Author&lt;/td&gt;
             &lt;td&gt;&lt;a href="#" asp-authorize-resource="document" 
             asp-policy="EditDocument" class="glyphicon glyphicon-pencil"&gt;&lt;/a&gt;
             &lt;/td&gt;
