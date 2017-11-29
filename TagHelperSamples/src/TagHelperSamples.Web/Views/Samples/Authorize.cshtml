@@ -1,7 +1,9 @@
 ﻿@using TagHelperSamples.Web.Model
+@using TagHelperSamples.Web.Authorization
+
 @model LoginModel
 @{
-    ViewBag.Title = "Authorize Tag Helper";
+    ViewBag.Title = "Authorize Tag Helpers";
 }
 <style type="text/css">
     .panel-body {
@@ -60,14 +62,14 @@
         </div>
         <button type="submit" class="btn btn-default">Log Me In</button>
     </form>
- 
+
     @if (User.Identity.IsAuthenticated)
     {
-        <form class="pull-right" asp-controller="Samples" asp-action="LogOut" method="post" class="form-inline"><button type="submit" class="btn btn-default">Log Me Out</button></form>
+        <form class="pull-right form-inline" asp-controller="Samples" asp-action="LogOut" method="post" ><button type="submit" class="btn btn-default">Log Me Out</button></form>
 
     }
 
-    <a id="policy"></a>
+    <a id="authorize"></a>
     <h3>Authorize</h3>
     <div class="row">
         <div asp-authorize class="col-md-4">
@@ -136,6 +138,65 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
+
+    <a id="authorizeresource"></a>
+    <h3>Authorize Resource</h3>
+    <p>Resource based authorization allows you to evaluate policies/requirements for the current user against a particular resource. You can read more about resource authorization <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?tabs=aspnetcore2x">here</a>.</p>
+    <p>The following examples shows the two uses for the Authorize Resource tag helper. First, we evaluate the "EditDocument" policy for the Edit link. Next, we evalute the "Operations.Delete" requirement for the Delete link. </p>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Document document in ViewBag.Documents)
+                {
+                    <tr>
+                        <td>@document.Title</td>
+                        <td>@document.Author</td>
+                        <td><a href="#" asp-authorize-resource="document" 
+                                asp-policy="EditDocument" class="glyphicon glyphicon-pencil"></a>
+                        </td>
+                        <td><a href="#" asp-authorize-resource="document"
+                                asp-requirement="Operations.Delete" class="glyphicon glyphicon-trash text-danger">                            
+                        </a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <h4>Razor Code:</h4>
+    <pre><code class="html">&lt;table class="table table-striped"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Title&lt;/th&gt;
+            &lt;th&gt;Author&lt;/th&gt;
+            &lt;th&gt;Edit&lt;/th&gt;
+            &lt;th&gt;Delete&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        @foreach (Document document in ViewBag.Documents)
+        {
+            &lt;tr&gt;
+            &lt;td&gt;@document.Title&lt;/td&gt;
+            &lt;td&gt;@document.Author&lt;/td&gt;
+            &lt;td&gt;&lt;a href="#" asp-authorize-resource="document" 
+            asp-policy="EditDocument" class="glyphicon glyphicon-pencil"&gt;&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;&lt;a href="#" asp-authorize-resource="document"
+            asp-requirement="Operations.Delete" class="glyphicon glyphicon-trash text-danger"&gt;                            
+            &lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        }
+    &lt;/tbody&gt;
+&lt;/table&gt;
 </code></pre>
 
 </div>

@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using TagHelperSamples.Web.Authorization;
 
 namespace TagHelperSamples.Web
 {
@@ -38,10 +40,16 @@ namespace TagHelperSamples.Web
                         {
                             return context.User.Claims.Any(c => c.Type == "Age" && Int32.Parse(c.Value) >= 65);
                         });
+
                     });
+                    o.AddPolicy("EditDocument", policy =>
+                        policy.Requirements.Add(new SameAuthorRequirement()));
 
                 }
             );
+
+            services.AddSingleton<IAuthorizationHandler, DocumentSameAuthorAuthorizationHandler>();
+            services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationCrudHandler>();
         }
 
         // Configure is called after ConfigureServices is called.
