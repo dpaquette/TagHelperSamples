@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Linq;
+using GenFu;
 
 namespace TagHelperSamples.Web.Controllers
 {
@@ -21,6 +22,8 @@ namespace TagHelperSamples.Web.Controllers
                 model.Role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
                 model.Age = User.Claims.FirstOrDefault(c => c.Type == "Age")?.Value;
             }
+            A.Configure<Document>().Fill(d => d.Author).WithRandom(new[] {"Joe", "Jane", "Jim", "James"});
+            ViewBag.Documents = A.ListOf<Document>(15);
             return View(model);
         }
 

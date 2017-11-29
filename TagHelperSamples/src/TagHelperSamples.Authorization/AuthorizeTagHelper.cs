@@ -8,15 +8,16 @@ namespace TagHelperSamples.Authorization
 {
     [HtmlTargetElement(Attributes = "asp-authorize")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-policy")]
+    [HtmlTargetElement(Attributes = "asp-authorize,asp-policy,asp-resource")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-roles")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-authentication-schemes")]
-    public class AuthorizationPolicyTagHelper : TagHelper, IAuthorizeData
+    public class AuthorizeTagHelper : TagHelper, IAuthorizeData
     {
         private readonly IAuthorizationPolicyProvider _policyProvider;
         private readonly IPolicyEvaluator _policyEvaluator;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthorizationPolicyTagHelper(IHttpContextAccessor httpContextAccessor, IAuthorizationPolicyProvider policyProvider, IPolicyEvaluator policyEvaluator)
+        public AuthorizeTagHelper(IHttpContextAccessor httpContextAccessor, IAuthorizationPolicyProvider policyProvider, IPolicyEvaluator policyEvaluator)
         {
             _httpContextAccessor = httpContextAccessor;
             _policyProvider = policyProvider;
@@ -40,7 +41,7 @@ namespace TagHelperSamples.Authorization
         /// </summary>
         [HtmlAttributeName("asp-authentication-schemes")]
         public string AuthenticationSchemes { get; set; }
-        
+
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             var policy = await AuthorizationPolicy.CombineAsync(_policyProvider, new[] { this });
@@ -48,7 +49,6 @@ namespace TagHelperSamples.Authorization
             var authenticateResult = await _policyEvaluator.AuthenticateAsync(policy, _httpContextAccessor.HttpContext);
 
             var authorizeResult = await _policyEvaluator.AuthorizeAsync(policy, authenticateResult, _httpContextAccessor.HttpContext, null);
-
 
             if (!authorizeResult.Succeeded)
             {
