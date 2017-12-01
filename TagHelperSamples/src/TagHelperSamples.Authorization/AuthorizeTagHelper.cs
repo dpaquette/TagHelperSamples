@@ -8,7 +8,6 @@ namespace TagHelperSamples.Authorization
 {
     [HtmlTargetElement(Attributes = "asp-authorize")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-policy")]
-    [HtmlTargetElement(Attributes = "asp-authorize,asp-policy,asp-resource")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-roles")]
     [HtmlTargetElement(Attributes = "asp-authorize,asp-authentication-schemes")]
     public class AuthorizeTagHelper : TagHelper, IAuthorizeData
