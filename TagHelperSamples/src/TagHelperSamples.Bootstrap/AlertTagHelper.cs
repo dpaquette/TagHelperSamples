@@ -157,11 +157,22 @@ namespace TagHelperSamples.Bootstrap
                     "</button>\r\n");
 
             if (string.IsNullOrEmpty(header))
-                sb.AppendLine($"<i class='fa fa-{icon}'></i> {messageText}");
+            {
+                if (!string.IsNullOrEmpty(icon))
+                {
+                    sb.Append($"<i class='fa fa-{icon}'></i> ");
+                }
+                sb.Append($"{messageText}");
+            }
             else
             {
+                sb.Append($"<h3>");
+                if (!string.IsNullOrEmpty(icon))
+                {
+                    sb.Append($"<i class='fa fa-{icon}'></i> ");
+                }
                 sb.Append(
-                    $"<h3><i class='fa fa-{icon}'></i> {headerText}</h3>\r\n" +
+                    $"{headerText}</h3>\r\n" +
                     "<hr/>\r\n" +
                     $"{messageText}\r\n");                
             }
