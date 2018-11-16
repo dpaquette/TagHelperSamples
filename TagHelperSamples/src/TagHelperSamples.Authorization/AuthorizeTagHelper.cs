@@ -53,6 +53,8 @@ namespace TagHelperSamples.Authorization
             {
                 output.SuppressOutput();
             }
+            
+            output.Attributes.Remove("asp-authorize");
         }
     }
 }
