@@ -54,7 +54,8 @@ namespace TagHelperSamples.Authorization
                 output.SuppressOutput();
             }
             
-            output.Attributes.Remove("asp-authorize");
+			if (output.Attributes.TryGetAttribute("asp-authorize", out TagHelperAttribute attribute))
+				output.Attributes.Remove(attribute);
         }
     }
 }
