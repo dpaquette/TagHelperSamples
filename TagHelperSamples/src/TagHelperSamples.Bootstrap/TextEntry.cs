@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -58,46 +58,50 @@ namespace TagHelperSamples.Bootstrap
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            StringBuilder sb = new StringBuilder();
-
-            string type = Type;
-            string labelText = LabelText;
-            string value = Value;
-            string textClass = TextBoxClass;
-            string placeholder = PlaceHolder;
-
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(Value))
             {
                 if (For != null)
                 {
-                    value = For.Model.ToString();
+                    Value = For.Model.ToString();
                 }
             }
 
             output.TagName = "div";
             output.Attributes.Add("class", "form-group");
 
-            var ctl = new TagBuilder("label");
-            ctl.Attributes.Add("for", Id);
-            ctl.InnerHtml.Append(labelText);
-            sb.AppendLine(ctl.ToString());
+            var writer = new System.IO.StringWriter();
+            CreateLabelTagBuilder().WriteTo(writer, HtmlEncoder.Default);
+            CreateInputTagBuilder().WriteTo(writer, HtmlEncoder.Default);
+            // TODO: Add ValidationMessage
 
-            ctl = new TagBuilder("input");
-            ctl.Attributes.Add("id", Id);
-            ctl.Attributes.Add("name", Id);
-            ctl.AddCssClass(textClass);
-            ctl.Attributes.Add("value", value);
-            if (!string.IsNullOrEmpty(placeholder))
-                ctl.Attributes.Add("placeholder", placeholder);
+            output.Content.SetHtmlContent(writer.ToString());
+        }
 
-            sb.AppendLine( ctl.ToString() );
+        private TagBuilder CreateLabelTagBuilder()
+        {
+            var labelBuilder = new TagBuilder("label");
 
-            // TODO: Add ValidationMessage           
-            //ctl = new TagBuilder("span");
-            
+            labelBuilder.Attributes.Add("for", Id);
+            labelBuilder.InnerHtml.Append(LabelText);
 
-            
-            output.Content.SetContent(sb.ToString());
+            return labelBuilder;
+        }
+
+        private TagBuilder CreateInputTagBuilder()
+        {
+            var inputBuilder = new TagBuilder("input");
+
+            inputBuilder.Attributes.Add("id", Id);
+            inputBuilder.Attributes.Add("name", Id);
+            inputBuilder.AddCssClass(TextBoxClass);
+            inputBuilder.Attributes.Add("value", Value);
+            if (!string.IsNullOrEmpty(PlaceHolder))
+            {
+                inputBuilder.Attributes.Add("placeholder", PlaceHolder);
+            }
+
+            return inputBuilder;
         }
     }
 }
+
