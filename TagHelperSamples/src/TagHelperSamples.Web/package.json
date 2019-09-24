@@ -2,7 +2,7 @@
   "name": "taghelpersamples",
   "version": "0.0.0",
   "devDependencies": {
-    "bower": "1.8.2",
+    "bower": "1.8.8",
     "gulp": "3.8.11",
     "gulp-concat": "2.5.2",
     "gulp-cssmin": "0.1.7",
