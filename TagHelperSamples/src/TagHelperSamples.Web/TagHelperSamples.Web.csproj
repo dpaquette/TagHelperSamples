@@ -19,5 +19,4 @@
   <ItemGroup>
     <PackageReference Include="GenFu" Version="1.5.6" />
   </ItemGroup>
-
 </Project>
