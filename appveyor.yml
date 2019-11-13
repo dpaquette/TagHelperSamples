@@ -1,5 +1,5 @@
 
-version: 2.0.0.{build}.{branch}
+version: 3.0.0.{build}.{branch}
   
 init:
   - git config --global core.autocrlf true
@@ -15,7 +15,7 @@ build_script:
  - cmd: dotnet publish TagHelperSamples\src\TagHelperSamples.Web
  
 artifacts:
- - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp2.0\publish'
+ - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp3.0\publish'
    name: WebSite
    type: WebDeployPackage
 
