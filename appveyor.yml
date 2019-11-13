@@ -1,5 +1,7 @@
 
 version: 3.0.0.{build}.{branch}
+
+image: Visual Studio 2019
   
 init:
   - git config --global core.autocrlf true
