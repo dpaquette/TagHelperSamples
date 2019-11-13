@@ -2,9 +2,9 @@
   <PropertyGroup>
     <Description>ASP.NET Core MVC Tag Helpers for Bootstrap. These allow you to easily create Bootstrap component like Progress Bars, Modals and Alerts</Description>
     <AssemblyTitle>TagHelperSamples.Bootstrap</AssemblyTitle>
-    <VersionPrefix>2.0.0.0</VersionPrefix>
+    <VersionPrefix>3.0.0.0</VersionPrefix>
     <Authors>David Paquette;Rick Strahl;Rick Anderson</Authors>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
     <AssemblyName>TagHelperSamples.Bootstrap</AssemblyName>
     <PackageId>TagHelperSamples.Bootstrap</PackageId>
     <PackageTags>AspNetCore;MVC;Core;Tag Helper;Bootstrap</PackageTags>
@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>

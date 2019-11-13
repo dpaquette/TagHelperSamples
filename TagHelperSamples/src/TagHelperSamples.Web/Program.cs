@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace TagHelperSamples.Web
 {
@@ -12,11 +11,7 @@ namespace TagHelperSamples.Web
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging((hostingContext, logging) =>
-                {
-                    logging.AddConsole();
-                })
-                .UseStartup<Startup>();
+             WebHost.CreateDefaultBuilder(args)
+                 .UseStartup<Startup>();
     }
 }
