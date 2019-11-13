@@ -3,9 +3,9 @@
   <PropertyGroup>
     <Description>A Tag Helper that dynamically converts Markdown to HTML. Allows you to write Markdown in your razor pages.</Description>
     <AssemblyTitle>TagHelperSamples.Markdown</AssemblyTitle>
-    <VersionPrefix>2.0.0.0</VersionPrefix>
+    <VersionPrefix>3.0.0.0</VersionPrefix>
     <Authors>David Paquette;Maxime Rouiller</Authors>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
     <AssemblyName>TagHelperSamples.Markdown</AssemblyName>
     <PackageId>TagHelperSamples.Markdown</PackageId>
     <PackageTags>AspNetCore;MVC;Core;Tag Helper;Markdown</PackageTags>
@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="CommonMark.NET" Version="0.15.1" />
   </ItemGroup>
 

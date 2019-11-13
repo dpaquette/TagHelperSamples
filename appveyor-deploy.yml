@@ -1,10 +1,10 @@
-version: 2.0.{build}
+version: 3.0.{build}
 
 branches:
   only:
   - master
   
-image: Visual Studio 2017
+image: Visual Studio 2019
   
 init:
   - git config --global core.autocrlf true
@@ -27,7 +27,7 @@ test_script:
  - cmd: dotnet test  
  
 artifacts:
- - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp2.0\publish'
+ - path: '\TagHelperSamples\src\TagHelperSamples.Web\bin\Debug\netcoreapp3.0\publish'
    name: WebSite
    type: WebDeployPackage   
  - path: '**\*.nupkg' 
