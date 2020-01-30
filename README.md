@@ -13,7 +13,9 @@ Click the *Summary* menu item to see the tag helpers in action. From the home li
 # Try it in your project
 
 ## Bootstrap Tag Helpers
-The Bootstrap Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Bootstrap).
+[![Bootstrap Tag Helpers NuGet Badge](https://buildstats.info/nuget/TagHelperSamples.Bootstrap)](https://www.nuget.org/packages/TagHelperSamples.Bootstrap/)
+
+The Bootstrap Tag Helper samples are available on Nuget.
 
 `dotnet add package TagHelperSamples.Bootstrap`
 
@@ -22,7 +24,8 @@ Then add the tag helpers to your _ViewImports.cshtml file:
 `@addTagHelper "*, TagHelperSamples.Bootstrap"`
 
 ## Markdown Tag Helpers
-The Markdown Tag Helper samples are available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Markdown).
+[![Markdown Tag Helpers NuGet Badge](https://buildstats.info/nuget/TagHelperSamples.Markdown)](https://www.nuget.org/packages/TagHelperSamples.Markdown/)
+The Markdown Tag Helper samples are available on Nuget.
 
 `dotnet add package TagHelperSamples.Markdown`
 
@@ -31,8 +34,8 @@ Then add the tag helpers to your _ViewImports.cshtml file:
 `@addTagHelper "*, TagHelperSamples.Markdown"`
 
 ## Authorize Tag Helper
-
-The Authorize Tag Helper is available on [Nuget](https://www.nuget.org/packages/TagHelperSamples.Authorization/).
+[![Authorization Tag Helpers NuGet Badge](https://buildstats.info/nuget/TagHelperSamples.Authorization)](https://www.nuget.org/packages/TagHelperSamples.Authorization/)
+The Authorize Tag Helper is available on Nuget.
 
 `dotnet add package TagHelperSamples.Authorization`
 
