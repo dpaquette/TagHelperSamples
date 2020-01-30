@@ -25,6 +25,7 @@ Then add the tag helpers to your _ViewImports.cshtml file:
 
 ## Markdown Tag Helpers
 [![Markdown Tag Helpers NuGet Badge](https://buildstats.info/nuget/TagHelperSamples.Markdown)](https://www.nuget.org/packages/TagHelperSamples.Markdown/)
+
 The Markdown Tag Helper samples are available on Nuget.
 
 `dotnet add package TagHelperSamples.Markdown`
@@ -35,6 +36,7 @@ Then add the tag helpers to your _ViewImports.cshtml file:
 
 ## Authorize Tag Helper
 [![Authorization Tag Helpers NuGet Badge](https://buildstats.info/nuget/TagHelperSamples.Authorization)](https://www.nuget.org/packages/TagHelperSamples.Authorization/)
+
 The Authorize Tag Helper is available on Nuget.
 
 `dotnet add package TagHelperSamples.Authorization`
